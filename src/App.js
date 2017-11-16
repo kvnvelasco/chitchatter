@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to ChitChatter</h1>
         </header>
         <p className="App-intro">
-         FUCK YOU WINDOWS
+          <span>FUCK YOU WINDOWS</span><code>src/App.js</code> and save to reload.
         </p>
       </div>
     );
