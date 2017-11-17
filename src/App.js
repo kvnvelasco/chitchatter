@@ -22,8 +22,8 @@ class App extends Component {
         </NavLink>
 
         <Switch>
-          <Route path="/1stPage" component={Home}/>
-          <Route path="/2ndPage" component={ChatRoom}/>
+          <Route path="/" component={Home}/>
+          <Route path="/chatroom" component={ChatRoom}/>
         </Switch>
       </div>
     );
