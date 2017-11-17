@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Route, Switch, Link, NavLink} from 'react-router-dom'
-import "CLASS NAME" from ""  
-import "CLASS NAME" from ""
+import {Route, Switch, Link, NavLink} from 'react-router-dom';
+import Home from "./pages/home";
+import ChatRoom from "./pages/chatroom";
 
 class App extends Component {
   render() {
@@ -22,8 +22,8 @@ class App extends Component {
         </NavLink>
 
         <Switch>
-          <Route path="/1stPage" component={"COMPONENT NAME HERE"}/>
-          <Route path="/2ndPage" component={"COMPONENT NAME HERE"}/>
+          <Route path="/1stPage" component={Home}/>
+          <Route path="/2ndPage" component={ChatRoom}/>
         </Switch>
       </div>
     );
