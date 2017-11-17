@@ -18,7 +18,10 @@ class Home extends Component{
                         <div className="form-inputs">
                             <input type="text" name="chatroomname" placeholder="chatroom-name"/>
                         </div>
-                        <input type="submit" name="submit" value="Enter Room"/>
+                        <input type="submit" name="submit" value="Enter Room" onClick={(e)=>{
+                            this.props.history.push('/chatroom')
+                            e.preventDefault()
+                        }} />
                     </form>
                 </div>
 
