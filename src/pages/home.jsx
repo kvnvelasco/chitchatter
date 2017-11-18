@@ -11,6 +11,7 @@ class Home extends Component{
                 </div>
 
                 <div className="container">
+                    <p>Join the Chatrom</p>
                     <form>
                         <div className="form-inputs">
                             <input type="text" name="username" placeholder="username"/>
