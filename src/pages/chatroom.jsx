@@ -38,3 +38,5 @@ class ChatRoom extends Component{
         )
     }
 }
+
+export default ChatRoom;
