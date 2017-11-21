@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 
 class ChatRoom extends Component {
@@ -43,7 +44,6 @@ class ChatRoom extends Component {
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
         break;
-      
     }
   }
 
@@ -57,10 +57,11 @@ class ChatRoom extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <img src="logo.png" />
+        <header className="App-Header2">
+          <img src="https://image.ibb.co/gvqtiR/logo.png" alt="logo" />
+          <h1 className="App-title">ChitChat</h1>
           <button>Leave Room</button>
-        </nav>
+        </header>
 
         <div className="users">
           {
@@ -75,8 +76,9 @@ class ChatRoom extends Component {
             {
               this.state.messages.map(message => (
                 <div className="chat">
+                  {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
                   <p className="chat-message">{message.message}</p>
-                  <p className="user">{message.author}</p>
+                  <p className="user1">{message.author}</p>
                 </div>
               ))
             }
