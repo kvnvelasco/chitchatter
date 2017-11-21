@@ -9,32 +9,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
-        <NavLink to="1stPage">
+        <NavLink to="/">
           <p>
             LOG IN 
           </p>
         </NavLink>
 
-        <NavLink to="2ndPage">
+        <NavLink to="/chatroom">
           <p>
             CHAT ROOM 
           </p>
         </NavLink>
 
         <Switch>
-          <Route path="/" component={Home}/>
           <Route path="/chatroom" component={ChatRoom}/>
+          <Route path="/" component={Home}/>
         </Switch>
-=======
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, die, edit <code>src/App.js</code> and save to reload.
-        </p>
->>>>>>> origin/random-edit
       </div>
     );
   }
