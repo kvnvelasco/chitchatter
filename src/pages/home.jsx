@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class Home extends Component{
     state = {
       username: "",
@@ -8,16 +9,21 @@ class Home extends Component{
     render(){
       console.log('Home', this.state)
         return(
+            
             <div>
-                <div className="logo-title">
-                    <img className="App-logo" src="https://image.ibb.co/gvqtiR/logo.png" />
-                    <p className="app-title">ChitChat</p>
-                </div>
-
+         <header className="App-header">
+          <img src="https://image.ibb.co/gvqtiR/logo.png" className="App-logo" alt="logo" />
+          <h1 className="App-title">ChitChat</h1>
+            </header>
+         <p className="App-intro">
+          Talk exclusively to the ones who matter. 
+          <br />Come and ChitChat.
+         </p>
                 <div className="container">
                     <div className="jumbotron">
                     <p>Join a Chatroom</p>
                     <form>
+               
                         <div className="form-inputs">
                             <input 
                             onChange={(ev) => this.setState({ username: ev.target.value })}
