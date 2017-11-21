@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 class ChatRoom extends Component {
   state = {
-    notif: '',
     users: [],
     messages: [],
     currentMessage: "",
@@ -44,9 +43,8 @@ class ChatRoom extends Component {
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
       case "joined":
-        const joinNotif = `${data.data.name} has entered the room`
         this.setState({users: [...this.state.users, data.data.name]})
-        this.setState({messages: [...this.state.messages, {message: joinNotif, author: ''}]})
+        this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
         break;
     }
   }
