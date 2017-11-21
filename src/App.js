@@ -9,21 +9,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink to="1stPage">
+        <NavLink to="/">
           <p>
             LOG IN 
           </p>
         </NavLink>
 
-        <NavLink to="2ndPage">
+        <NavLink to="/chatroom">
           <p>
             CHAT ROOM 
           </p>
         </NavLink>
 
         <Switch>
-          <Route path="/" component={Home}/>
           <Route path="/chatroom" component={ChatRoom}/>
+          <Route path="/" component={Home}/>
         </Switch>
       </div>
     );
