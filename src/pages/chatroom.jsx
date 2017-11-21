@@ -1,42 +1,96 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-class ChatRoom extends Component{
-    render(){
-        return(
-          <div>
-              <nav>
-                  <img src="logo.png"/>
-                  <button>Leave Room</button>
-              </nav>
+class ChatRoom extends Component {
+  state = {
+    users: [],
+    messages: [],
+    currentMessage: "",
+    socket: null
+  }
 
-              <div className="users">
-                  <p>TonyTony1</p>
-                  <p>DanielDanD</p>
-                  <p>JuliusCeasar</p>
-                  <p>TomnGeri</p>  
-              </div>
+  componentWillMount() {
 
-              <div className="chatbox">
-                <div className="chatlogs">
-                    <div className="chat">
-                        <p className="chat-message">I see Dead People</p>
-                        <p className="user">TonyTonyy1</p>
-                    </div>
-                    <div className="chat">
-                        <p className="chat-message">I see Dead People</p>
-                        <p className="user">You</p>
-                    </div>
-                </div>
-              </div>
+    if(!this.props.username || !this.props.room)
+      return this.props.history.replace('/')
 
-              <div className="typebox">
-                <textarea></textarea>
-                <button>Send</button>
-              </div>
-          </div>
-            
-        )
+    const socket = new WebSocket("ws://188.166.221.63:8000")
+    socket.onmessage = this.messageHandler
+    socket.onopen = () => {
+      this.setState({socket})
+      socket.send(JSON.stringify({
+        type: 'join',
+        data: {
+          username: this.props.username,
+          room: this.props.room
+        }
+      }))
     }
+  }
+
+  messageHandler = (socketData) => {
+    
+    const data = JSON.parse(socketData.data)
+    console.log(data)
+    switch(data.type) {
+      case "join_success": 
+        break;
+      case "history": 
+        this.setState({messages: data.data.messages})
+        break;
+      case "members":
+        this.setState({ users: data.data })
+        break;
+      case "message":
+        this.setState({messages: this.state.messages.concat([data.data])})
+        break;
+      
+    }
+  }
+
+  sendMessage = () => {
+    this.state.socket.send(JSON.stringify(
+     { type: 'message',
+      data: {message: this.state.currentMessage}}
+    ))
+  }
+
+  render() {
+    return (
+      <div>
+        <nav>
+          <img src="logo.png" />
+          <button>Leave Room</button>
+        </nav>
+
+        <div className="users">
+          {
+            this.state.users.map(user => (
+              <p>{user}</p>
+            ))
+          }
+        </div>
+
+        <div className="chatbox">
+          <div className="chatlogs">
+            {
+              this.state.messages.map(message => (
+                <div className="chat">
+                  <p className="chat-message">{message.message}</p>
+                  <p className="user">{message.author}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div className="typebox">
+          <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
+          <button onClick={this.sendMessage} >Send</button>
+        </div>
+      </div>
+
+    )
+  }
 }
 
 export default ChatRoom;

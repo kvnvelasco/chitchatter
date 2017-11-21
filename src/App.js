@@ -6,7 +6,17 @@ import Home from "./pages/home";
 import ChatRoom from "./pages/chatroom";
 
 class App extends Component {
+  state = {
+    username: "",
+    room: ""
+  }
+
+  login = (username, room) => {
+    this.setState({username, room})
+  }
+
   render() {
+    console.log('app', this.state)
     return (
       <div className="App">
         <NavLink to="/">
@@ -22,8 +32,14 @@ class App extends Component {
         </NavLink>
 
         <Switch>
-          <Route path="/chatroom" component={ChatRoom}/>
-          <Route path="/" component={Home}/>
+          <Route path="/chatroom" render={(locationProps) => (
+            <ChatRoom {...locationProps} 
+              username={this.state.username} 
+              room={this.state.room}/>
+          )}/>
+          <Route path="/" render={(locationProps) => (
+            <Home {...locationProps} login={this.login}/>
+        )}/>
         </Switch>
       </div>
     );
