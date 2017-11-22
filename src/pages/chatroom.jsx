@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 
 class ChatRoom extends Component {
@@ -43,6 +42,9 @@ class ChatRoom extends Component {
         break;
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
+      case "joined":
+        this.setState({users: [...this.state.users, data.data.name]})
+        this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
         break;
       case "left":
         var i=this.state.users.findIndex(()=> data.data)
