@@ -38,7 +38,7 @@ class ChatRoom extends Component {
         this.setState({messages: data.data.messages})
         break;
       case "members":
-        data.data.push(this.props.username)
+        data.data.push(this.props.username+' (You)')
         this.setState({ users: data.data })
         break;
       case "message":
