@@ -44,6 +44,9 @@ class ChatRoom extends Component {
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
         break;
+      case "left":
+        var i=this.state.users.findIndex(()=> data.data)
+        this.setState({users:this.state.users.slice(0,i).concat(this.state.users.slice(i+1))})
     }
   }
 
@@ -53,6 +56,7 @@ class ChatRoom extends Component {
       data: {message: this.state.currentMessage}}
     ))
   }
+  
 
   render() {
     return (
