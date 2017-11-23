@@ -9,7 +9,6 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
-
     if(!this.props.username || !this.props.room)
       return this.props.history.replace('/')
 
@@ -43,6 +42,7 @@ class ChatRoom extends Component {
         break;
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
+        break;
       case "joined":
         this.setState({users: [...this.state.users, data.data.name]})
         this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
