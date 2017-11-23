@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
+=======
+import React, { Component } from 'react';
+
+>>>>>>> g-master
 
 class ChatRoom extends Component {
   state = {
@@ -75,13 +80,13 @@ class ChatRoom extends Component {
   render() {
     return (
       <div>
-        <header className="App-Header2">
-          <img src="https://image.ibb.co/gvqtiR/logo.png" alt="logo" />
-          <h1 className="App-title">ChitChat</h1>
-          <button onClick={this.logOut}>Leave Room</button>
-        </header>
+        <div className="jumbotron jumbotron-fluid">
+          <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" style={{display : 'inline-block'}} />
+          <h1 className="App-title2" style={{display : 'inline-block'}}>ChitChat</h1>
+          <button onClick={this.logOut} style={{display : 'inline-block'}}>Leave Room</button>
+        </div>
 
-        <div className="users">
+      <div className="users container-fluid">
           {
             this.state.users.map(user => (
               <p>{user}</p>
@@ -89,8 +94,8 @@ class ChatRoom extends Component {
           }
         </div>
 
-        <div className="chatbox">
-          <div className="chatlogs">
+        <div className="chatbox container">
+            <div className="chatlogs">
             {
               this.state.messages.map(message => (
                 <div className="chat">
@@ -100,13 +105,13 @@ class ChatRoom extends Component {
                 </div>
               ))
             }
-          </div>
-        </div>
-
         <div className="typebox">
           <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
           <button onClick={this.sendMessage} >Send</button>
         </div>
+          </div>
+          </div>
+
       </div>
 
     )
