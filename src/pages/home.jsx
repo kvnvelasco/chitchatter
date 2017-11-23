@@ -6,7 +6,6 @@ class Home extends Component{
       room: ""
     }
     render(){
-      console.log('Home', this.state)
         return(
             
             <div>

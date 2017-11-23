@@ -30,7 +30,6 @@ class ChatRoom extends Component {
   messageHandler = (socketData) => {
     
     const data = JSON.parse(socketData.data)
-    console.log(data)
     switch(data.type) {
       case "join_success": 
         break;
@@ -46,6 +45,9 @@ class ChatRoom extends Component {
         this.setState({users: [...this.state.users, data.data.name]})
         this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
         break;
+      case "left":
+        this.setState({messages: [...this.state.messages, {message: `${data.data.name} has left the room`}]})
+        break;
     }
   }
 
@@ -57,8 +59,14 @@ class ChatRoom extends Component {
   }
 
   logOut = () => {
-    this.props.history.push("/")
+    this.state.socket.send(JSON.stringify(
+     { type: 'left',
+      data: {username: this.props.username}},
+      this.props.history.push('/')
+    ))
   }
+
+    
 
   render() {
     return (
