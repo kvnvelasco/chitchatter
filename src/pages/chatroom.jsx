@@ -48,7 +48,7 @@ class ChatRoom extends Component {
         break;
       case "left":
         this.setState({messages: [...this.state.messages, {message: `${data.data.username} has left the room`}]})
-        var i=this.state.users.findIndex(()=> data.data)
+        var i=this.state.users.findIndex((currentIndex)=> data.data.username===currentIndex)
         this.setState({users:this.state.users.slice(0,i).concat(this.state.users.slice(i+1))})
         break;
     }
