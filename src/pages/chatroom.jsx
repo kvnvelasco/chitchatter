@@ -30,7 +30,6 @@ class ChatRoom extends Component {
   messageHandler = (socketData) => {
     
     const data = JSON.parse(socketData.data)
-    console.log(data)
     switch(data.type) {
       case "join_success": 
         break;
@@ -48,8 +47,10 @@ class ChatRoom extends Component {
         this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
         break;
       case "left":
+        this.setState({messages: [...this.state.messages, {message: `${data.data.username} has left the room`}]})
         var i=this.state.users.findIndex(()=> data.data)
         this.setState({users:this.state.users.slice(0,i).concat(this.state.users.slice(i+1))})
+        break;
     }
   }
 
@@ -61,13 +62,23 @@ class ChatRoom extends Component {
   }
   
 
+  logOut = () => {
+    this.state.socket.send(JSON.stringify(
+     { type: 'left',
+      data: {username: this.props.username}},
+      this.props.history.push('/')
+    ))
+  }
+
+    
+
   render() {
     return (
       <div>
         <header className="App-Header2">
           <img src="https://image.ibb.co/gvqtiR/logo.png" alt="logo" />
           <h1 className="App-title">ChitChat</h1>
-          <button>Leave Room</button>
+          <button onClick={this.logOut}>Leave Room</button>
         </header>
 
         <div className="users">
