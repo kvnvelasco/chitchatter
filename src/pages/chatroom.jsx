@@ -64,7 +64,7 @@ class ChatRoom extends Component {
 
   logOut = () => {
     this.state.socket.send(JSON.stringify(
-     { type: 'left',
+     { type: 'leave',
       data: {username: this.props.username}},
       this.props.history.push('/')
     ))
