@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React, { Component } from 'react'
-=======
-import React, { Component } from 'react';
-
->>>>>>> g-master
 
 class ChatRoom extends Component {
   state = {
