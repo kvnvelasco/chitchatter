@@ -61,7 +61,6 @@ class ChatRoom extends Component {
           <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" style={{display : 'inline-block'}} />
           <h1 className="App-title2" style={{display : 'inline-block'}}>ChitChat</h1>
           <button style={{display : 'inline-block'}}>Leave Room</button>
-        
         </div>
 
       <div className="users container-fluid">
@@ -70,6 +69,7 @@ class ChatRoom extends Component {
               <p>{user}</p>
             ))
           }
+        </div>
 
         <div className="chatbox container">
             <div className="chatlogs">
@@ -80,17 +80,15 @@ class ChatRoom extends Component {
                   <p className="chat-message">{message.message}</p>
                   <p className="user1">{message.author}</p>
                 </div>
-
               ))
             }
-          </div>
-        </div>
-          </div>
-
         <div className="typebox">
           <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
           <button onClick={this.sendMessage} >Send</button>
         </div>
+          </div>
+          </div>
+
       </div>
 
     )

@@ -42,6 +42,7 @@ font-size: 32px;
 font-family: 'Lily Script One', cursive; 
 align-self: right; 
 margin-right: 100px;
+position: relative;
 }
 
 .App-logo {
@@ -53,6 +54,7 @@ align-self: center;
 .Applogo2 {
 height: 60px;
 margin-right: 100px;
+position: relative;
 
 }
 
@@ -107,7 +109,7 @@ width: 400px;
 height: 470px auto;
 background: #fff;
 padding: 25px;
-margin-left: 200px;
+margin-left: 300px;
 box-shadow: 0 3px #ccc;
 float: center;
 }
@@ -161,7 +163,7 @@ font-size: 12px;
 color: #613A43;
 font-size: 14px;
 background-color: #849974;
-width: 30%;
+width: 20%;
 padding-top: 5%;
 padding-bottom: 8%;
 border: 4px solid;
@@ -172,17 +174,16 @@ margin-left: 30px;
 }
 
 .typebox {
-margin-top: 30px;
+margin-top: 250px;
 display: flex;
 align-items: flex-start;
-margin-left: 240px;
-margin-top: 600px;
+margin-left: 0px;
 width: 100%;
 }
 
 .typebox textarea {
 background: #fbfbfb;
-width: 70%;
+width: 100%;
 height: 70px;
 border: 2px solid #eee;
 border-radius: 6px;
