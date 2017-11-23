@@ -15,12 +15,11 @@ class Home extends Component{
           <img src="https://image.ibb.co/gvqtiR/logo.png" className="App-logo" alt="logo" />
           <h1 className="App-title">ChitChat</h1>
             </header>
-         <p className="App-intro">
+         <br /><p className="App-intro">
           Talk exclusively to the ones who matter. 
-          <br />Come and ChitChat.
+          <br />Come and ChitChat. <br /><br />
          </p>
                 <div className="container">
-                    <div className="jumbotron">
                     <p>Join a Chatroom</p>
                     <form>
                
@@ -43,7 +42,6 @@ class Home extends Component{
                         }} />
                     </form>
                     </div>
-                </div>
                 </div>
         )
     }
