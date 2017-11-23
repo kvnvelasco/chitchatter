@@ -56,13 +56,17 @@ class ChatRoom extends Component {
     ))
   }
 
+  logOut = () => {
+    this.props.history.push("/")
+  }
+
   render() {
     return (
       <div>
         <header className="App-Header2">
           <img src="https://image.ibb.co/gvqtiR/logo.png" alt="logo" />
           <h1 className="App-title">ChitChat</h1>
-          <button>Leave Room</button>
+          <button onClick={this.logOut}>Leave Room</button>
         </header>
 
         <div className="users">

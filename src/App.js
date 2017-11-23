@@ -20,13 +20,20 @@ class App extends Component {
     return (
       <div className="App">
         <ul className="nav nav-list">
-        <li><NavLink to="/">
-            LOG IN 
-        </NavLink></li>
 
-        <li><NavLink to='ChatRoom'>
-            CHAT ROOM 
-        </NavLink></li>
+        <li>
+        <NavLink to="/">
+        <Route exact path ="/" render={(locationprops) => (<div>LOG IN</div>)} />
+        <Route path ="/chatroom" render={(locationprops) => (<div>LOG OUT</div>)} />
+        </NavLink>
+        </li>
+
+        <li>
+        <NavLink to='ChatRoom'>
+          CHAT ROOM 
+        </NavLink>
+        </li>
+
         </ul>
         <Switch>
           <Route path="/chatroom" render={(locationProps) => (
