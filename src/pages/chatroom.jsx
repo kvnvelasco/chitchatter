@@ -35,6 +35,8 @@ class ChatRoom extends Component {
         break;
       case "history": 
         this.setState({messages: data.data.messages})
+        if (this.chatNode)
+          this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
       case "members":
         data.data.push(this.props.username+' (You)')
@@ -42,6 +44,8 @@ class ChatRoom extends Component {
         break;
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
+        if(this.chatNode)
+          this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
       case "joined":
         this.setState({users: [...this.state.users, data.data.name]})
@@ -77,9 +81,9 @@ class ChatRoom extends Component {
     return (
       <div>
         <div className="jumbotron jumbotron-fluid">
-          <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" style={{display : 'inline-block'}} />
-          <h1 className="App-title2" style={{display : 'inline-block'}}>ChitChat</h1>
-          <button onClick={this.logOut} style={{display : 'inline-block'}}>Leave Room</button>
+          <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo"  />
+          <h1 className="App-title2" >ChitChat</h1>
+          <button onClick={this.logOut} className="button-jumbotron">Leave Room</button>
         </div>
 
       <div className="users container-fluid">
@@ -91,7 +95,7 @@ class ChatRoom extends Component {
         </div>
 
         <div className="chatbox container">
-            <div className="chatlogs">
+            <div ref={(el) => this.chatNode = el} className="chatlogs">
             {
               this.state.messages.map(message => {
                 
@@ -117,11 +121,13 @@ class ChatRoom extends Component {
                  
               })
             }
-        <div className="typebox">
-          <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
-          <button onClick={this.sendMessage} >Send</button>
-        </div>
           </div>
+
+          <div className="typebox">
+            <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
+            <button onClick={this.sendMessage} >Send</button>
+          </div>
+
           </div>
 
       </div>
