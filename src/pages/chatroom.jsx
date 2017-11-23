@@ -38,6 +38,7 @@ class ChatRoom extends Component {
         this.setState({messages: data.data.messages})
         break;
       case "members":
+        data.data.push(this.props.username+' (You)')
         this.setState({ users: data.data })
         break;
       case "message":
@@ -46,6 +47,9 @@ class ChatRoom extends Component {
         this.setState({users: [...this.state.users, data.data.name]})
         this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
         break;
+      case "left":
+        var i=this.state.users.findIndex(()=> data.data)
+        this.setState({users:this.state.users.slice(0,i).concat(this.state.users.slice(i+1))})
     }
   }
 
@@ -55,6 +59,7 @@ class ChatRoom extends Component {
       data: {message: this.state.currentMessage}}
     ))
   }
+  
 
   render() {
     return (
