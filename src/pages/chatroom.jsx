@@ -9,6 +9,7 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
+
     if(!this.props.username || !this.props.room)
       return this.props.history.replace('/')
 
@@ -34,6 +35,8 @@ class ChatRoom extends Component {
         break;
       case "history": 
         this.setState({messages: data.data.messages})
+        if (this.chatNode)
+          this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
       case "members":
         data.data.push(this.props.username+' (You)')
@@ -41,6 +44,8 @@ class ChatRoom extends Component {
         break;
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
+        if(this.chatNode)
+          this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
       case "joined":
         this.setState({users: [...this.state.users, data.data.name]})
@@ -89,16 +94,32 @@ class ChatRoom extends Component {
           }
         </div>
 
-        <div className="chatbox-container">
-            <div className="chatlogs">
+        <div className="chatbox container">
+            <div ref={(el) => this.chatNode = el} className="chatlogs">
             {
-              this.state.messages.map(message => (
-                <div className="chat">
-                  {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
-                  <p className="chat-message">{message.message}</p>
-                  <p className="user1">{message.author}</p>
-                </div>
-              ))
+              this.state.messages.map(message => {
+                
+                if(message.author===this.props.username){
+                  return (
+                    <div className="yourChat">
+                    <p className="chat-message">{message.message}</p>
+                    <p className="user1">{message.author}</p>
+                  </div>
+                  )
+                 
+                }
+                else{
+                  return (
+                    <div className="chat">
+                    {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
+                    <p className="chat-message">{message.message}</p>
+                    <p className="user1">{message.author}</p>
+                  </div>
+                  )
+                  
+                }
+                 
+              })
             }
           </div>
 
