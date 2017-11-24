@@ -9,7 +9,6 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
-
     if(!this.props.username || !this.props.room)
       return this.props.history.replace('/')
 
@@ -30,7 +29,6 @@ class ChatRoom extends Component {
   messageHandler = (socketData) => {
     
     const data = JSON.parse(socketData.data)
-    console.log(data)
     switch(data.type) {
       case "join_success": 
         break;
@@ -38,13 +36,20 @@ class ChatRoom extends Component {
         this.setState({messages: data.data.messages})
         break;
       case "members":
+        data.data.push(this.props.username+' (You)')
         this.setState({ users: data.data })
         break;
       case "message":
         this.setState({messages: this.state.messages.concat([data.data])})
+        break;
       case "joined":
         this.setState({users: [...this.state.users, data.data.name]})
         this.setState({messages: [...this.state.messages, {message: `${data.data.name} has entered the room`, author: ''}]})
+        break;
+      case "left":
+        this.setState({messages: [...this.state.messages, {message: `${data.data.username} has left the room`}]})
+        var i=this.state.users.findIndex((currentIndex)=> data.data.username===currentIndex)
+        this.setState({users:this.state.users.slice(0,i).concat(this.state.users.slice(i+1))})
         break;
     }
   }
@@ -55,17 +60,28 @@ class ChatRoom extends Component {
       data: {message: this.state.currentMessage}}
     ))
   }
+  
+
+  logOut = () => {
+    this.state.socket.send(JSON.stringify(
+     { type: 'leave',
+      data: {username: this.props.username}},
+      this.props.history.push('/')
+    ))
+  }
+
+    
 
   render() {
     return (
       <div>
-        <header className="App-Header2">
-          <img src="https://image.ibb.co/gvqtiR/logo.png" alt="logo" />
-          <h1 className="App-title">ChitChat</h1>
-          <button>Leave Room</button>
-        </header>
+        <div className="jumbotron jumbotron-fluid">
+          <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" style={{display : 'inline-block'}} />
+          <h1 className="App-title2" style={{display : 'inline-block'}}>ChitChat</h1>
+          <button onClick={this.logOut} style={{display : 'inline-block'}}>Leave Room</button>
+        </div>
 
-        <div className="users">
+      <div className="users container-fluid">
           {
             this.state.users.map(user => (
               <p>{user}</p>
@@ -73,8 +89,8 @@ class ChatRoom extends Component {
           }
         </div>
 
-        <div className="chatbox">
-          <div className="chatlogs">
+        <div className="chatbox container">
+            <div className="chatlogs">
             {
               this.state.messages.map(message => (
                 <div className="chat">
@@ -84,13 +100,13 @@ class ChatRoom extends Component {
                 </div>
               ))
             }
-          </div>
-        </div>
-
         <div className="typebox">
           <textarea onChange={(ev) => this.setState({currentMessage: ev.target.value})}></textarea>
           <button onClick={this.sendMessage} >Send</button>
         </div>
+          </div>
+          </div>
+
       </div>
 
     )
