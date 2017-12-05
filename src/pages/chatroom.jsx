@@ -8,7 +8,6 @@ class ChatRoom extends Component {
     users: [],
     messages: [],
     socket: null,
-    display: false
   }
 
   openAttach = () => {
@@ -150,8 +149,6 @@ class ChatRoom extends Component {
               <div className="chatbar">
                 <Chatbox
                   onClick={this.sendMessage}
-                  open={this.openAttach}
-                  display={this.state.display}
                 />
               </div>
 
