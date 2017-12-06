@@ -91,18 +91,17 @@ class ChatRoom extends Component {
 
 
   render() {
-    console.log(this.data)
     return (
       <div className="chat-room">
-          <div className="App-title2">ChitChatter</div>
+          <div id="chat-title2">ChitChatter</div>
           <SideBar room={this.props.room} 
                    users={this.state.users}
                    logOut={this.logOut}/>
           <div className="chatbox-container">
-          <ChatHistory Messages={this.state.messages}
-                       Username={this.props.username}
+          <ChatHistory messages={this.state.messages}
+                       username={this.props.username}
                        messageLength={this.state.messages.length}
-                       dataType={this.data.type}/>
+                       />
             <div className="typebox">
                 <textarea value={this.state.currentMessage} 
                           onChange={(ev) => this.setState({ currentMessage: ev.target.value })}>

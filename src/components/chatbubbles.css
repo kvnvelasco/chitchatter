@@ -1,32 +1,30 @@
 /*------------------------- MY "TEXT" BUBBLE -----------------------------*/
 .your-chat{
 display: block;
-flex-flow: row wrap;
-align-items: flex-start;
 margin-bottom: 80px;  
 }
   
 .your-chat .chat-message {
 position: relative;
-left:370px;
+left:380px;
 width:50%;
-
-overflow-wrap:break-word;
-text-align: center;
-padding:10px;
+text-align: right;
+word-wrap:break-word; 
+padding:10px; 
 border-bottom-right-radius: 5px;
 color: white;
 font-size: 14px;
-background: rgb(0, 153, 153);;  
+background: rgb(0, 153, 153);;   
 }
   
 .your-chat .chat-message:after{
 content: "";
-display: flex;;
+display: flex;
 position: absolute;
+bottom:-10px;
 width: 0;
 height: 0;
-left:375px;
+right:0px;
 border: 10px solid rgb(0, 153, 153);
 border-left-color: transparent;
 border-top-color: transparent;
@@ -34,11 +32,11 @@ border-bottom-color: transparent;
 }
    
 .user-me-name-time{
-position: relative;
+position: absolute;
 margin: none;
 padding:none;
-top:50px;
-left:153px;
+bottom:-40px;
+right:0px;
 color: #613A43;
 }
 
@@ -47,31 +45,29 @@ color: #613A43;
 
 .chat {
 display: block;
-flex-flow: row wrap;
 margin-bottom: 80px;    
 }
     
 .chat .chat-message {
 position: relative;
-overflow-wrap: break-word;
+word-wrap: break-word;
 left:10px;
 width: 50%;
 padding:10px;
 border-bottom-left-radius: 5px;
-text-align: center;
+text-align: left;
 color: white;
-font-size: 14px;
-background: #C0C0C0;;
+font-size: 14px; 
+background: #C0C0C0;
 }
    
 .chat .chat-message:after{
 content: "";
-display: block;
-position: absolute;
-align-self: auto;   
+position: absolute;   
 width: 0;
 height: 0;
-left:-0px;  
+left:0px;
+bottom:-10px;  
 border: 10px solid #C0C0C0;
 border-right-color: transparent;
 border-top-color: transparent;
@@ -81,13 +77,18 @@ border-bottom-color: transparent;
 
 .user1-name-time{
 color: #613A43;
-position:relative;
-display:flex;   
-top:50px;
-left:-10px;
+position:absolute; 
+bottom:-40px;
+left:0px;
 margin:none;
 padding:none;   
-font-size: 15px;
+
+/* position: absolute;
+margin: none;
+padding:none;
+bottom:-40px;
+right:0px;
+color: #613A43; */
 }
 
 

@@ -15,14 +15,18 @@
     position: relative;
     top:40px;
 }
+
 span {
-color: rgb(0, 153, 153);
-font-size: 38px;
-font-family: 'Lily Script One' cursive;
+ color: rgb(0, 153, 153);
 margin:none;
 align-self: center;
 position: absolute;
-bottom:575px;
+bottom:575px; 
+color: rgb(0, 153, 153);
+font-size: 38px;
+font-family: 'Lily Script One', cursive; 
+
+
 }
 
 

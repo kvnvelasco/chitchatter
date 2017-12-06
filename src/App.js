@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Route, Switch, Link, NavLink} from 'react-router-dom';
 import Home from "./pages/home";
-import ChatRoom from "./pages/chatroom";
+import ChatRoom from "./pages/ChatRoom";
 
 
 class App extends Component {

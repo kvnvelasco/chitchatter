@@ -23,18 +23,13 @@ export class ChatBubblesOTHERS extends Component {
     render() {
         return (
             <div className="chat">
-                {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
                 <div className="chat-message">
-                    <strong>
                         {this.props.message}
-                    </strong>
-
                     <div className="user1-name-time">
                         <strong>
                             {this.props.author} 7:45PM
                         </strong>
                     </div>
-
                 </div>
             </div>
         )

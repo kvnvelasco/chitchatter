@@ -17,7 +17,7 @@ export class SideBar extends Component {
                     <strong>
                         Room
                         <br />
-                        <strong>{this.props.room}</strong>
+                        {this.props.room}
                     </strong>
                     <a onClick={this.props.logOut}>(Leave)</a>
                 </p>
@@ -31,71 +31,44 @@ export class SideBar extends Component {
 }
 
 export class ChatHistory extends Component {
-    ComponentWillRecieveProps(newProps){
-        if(this.props.messageLength < newProps.messages.length){
+    ComponentWillRecieveProps(newProps) {
+        if (this.props.messageLength < newProps.messages.length) {
             (this.chatNode.scrollTop = this.chatNode.scrollHeight)
         }
     }
     render() {
         return (
-            <div ref={(el)=> this.chatNode = el} className="chatlogs">
+            <div ref={(el) => this.chatNode = el} className="chatlogs">
                 {
-                    this.props.Messages.map(message => {
-                        if (message.author === this.props.Username) {
-                            switch(this.props.dataType){
-                                case "message": 
-                                return(
-                                    <ChatBubblesME message={message.message}
-                                    author={message.author}/>
-                                )
-                                break;
-                                case "image":
-                                return(
-                                    <ChatBubblesIMAGEME message={message.message}
-                                    author={message.author}/>
-                                ) 
-                                break;
-                                case "pdf":
-                                return(
-                                    <ChatBubblesPDFME  message={message.message}
-                                    author={message.author}/>
-                                )
-                                break;
-                                default: 
-                                return(
-                                    console.log(data.type)
-                                )
-                            }
-                        }
-                        else {
+                    this.props.messages.map(message => {
+                        if (message.author === this.props.username) {
                             return (
-                                swtich(this.props.dataType){
-                                    case "message":
-                                    return(
-                                        <ChatBubblesOTHERS message={message.message}
-                                        author={message.author}/>
-                                    )
-                                    break;
-                                    case "image":
-                                    return (
-                                        <ChatBubblesIMAGEOTHERS message={message.message}
-                                        author={message.author}/>
-                                    )    
-                                    break;
-                                    case "pdf":
-                                    return (
-                                        <ChatBubblesPDFOthers message={message.message}
-                                        author={message.author}/>
-                                    )
-                                    break;
-                                    default:
-                                    return(
-                                        console.log(data.type)
-                                    )
-                                
+                                <div>
+                                    <ChatBubblesME message={message.message}
+                                        author={message.author} />
+                                    {/* 
+                                    <ChatBubblesIMAGEME message={message.message}
+                                        author={message.author} />
+
+                                    <ChatBubblesPDFME message={message.message}
+                                        author={message.author} /> */}
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div>
+                                    <ChatBubblesOTHERS message={message.message}
+                                        author={message.author} />
+                                    {/* <ChatBubblesIMAGEOTHERS message={message.message}
+                                        author={message.author} />
+
+                                    <ChatBubblesPDFOthers message={message.message}
+                                        author={message.author} /> */}
+                                </div>
                             )
                         }
                     })
+
                 }
             </div>
         )
@@ -106,8 +79,15 @@ export class SideImage extends Component {
     render() {
         return (
             <div className="background-photo">
-            {/* SUPPOSE TO BE EMPTY*/}
+                {/* SUPPOSE TO BE EMPTY*/}
             </div>
         )
     }
 }
+
+
+
+
+
+
+
