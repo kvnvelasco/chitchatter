@@ -42,32 +42,30 @@ export class ChatHistory extends Component {
                 {
                     this.props.Messages.map(message => {
                         if (message.author === this.props.Username) {
-                            return (
-                                switch(this.props.dataType){
-                                    case "message": 
-                                    return(
-                                        <ChatBubblesME message={message.message}
-                                        author={message.author}/>
-                                    )
-                                    break;
-                                    case "image":
-                                    return(
-                                        <ChatBubblesIMAGEME message={message.message}
-                                        author={message.author}/>
-                                    ) 
-                                    break;
-                                    case "pdf":
-                                    return(
-                                        <ChatBubblesPDFME  message={message.message}
-                                        author={message.author}/>
-                                    )
-                                    break;
-                                    default: 
-                                    return(
-                                        console.log(data.type)
-                                    )
-                                }
-                            )
+                            switch(this.props.dataType){
+                                case "message": 
+                                return(
+                                    <ChatBubblesME message={message.message}
+                                    author={message.author}/>
+                                )
+                                break;
+                                case "image":
+                                return(
+                                    <ChatBubblesIMAGEME message={message.message}
+                                    author={message.author}/>
+                                ) 
+                                break;
+                                case "pdf":
+                                return(
+                                    <ChatBubblesPDFME  message={message.message}
+                                    author={message.author}/>
+                                )
+                                break;
+                                default: 
+                                return(
+                                    console.log(data.type)
+                                )
+                            }
                         }
                         else {
                             return (
