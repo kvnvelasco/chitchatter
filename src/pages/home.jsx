@@ -1,48 +1,52 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import './home.css';
 
-class Home extends Component{
+
+class Home extends Component {
     state = {
-      username: "",
-      room: ""
+        username: "",
+        room: ""
     }
-    render(){
-        return(
-            
-            <div>
-         <header className="App-header">
-          <img src="https://image.ibb.co/gvqtiR/logo.png" className="App-logo" alt="logo" />
-          <h1 className="App-title">ChitChat</h1>
-            </header>
-         <br /><p className="App-intro">
-          Talk exclusively to the ones who matter. 
-          <br />Come and ChitChat. <br /><br />
-         </p>
+    render() {
+        return (
+            <div className="App-header">
                 <div className="container">
-                    <p>Join a Chatroom</p>
-                    <form>
-               
-                        <div className="form-inputs">
-                            <input 
-                            onChange={(ev) => this.setState({ username: ev.target.value })}
-                            type="text" name="username" placeholder="username"/>
-                        </div>
+                    <span>ChitChatter</span>
+                    
+                    <em>Join a room to get<br />started</em>
+    
+
+                    <strong>
+                        Username
                         <br />
-                        <div className="form-inputs">
-                            <input type="text" name="chatroomname" 
-                            onChange={(ev) => this.setState({room: ev.target.value})}
-                            placeholder="chatroom-name"/>
-                        </div>
+                    </strong>    
+                    <input
+                        onChange={(ev) => this.setState({ username: ev.target.value })}
+                        type="text" name="username" />
+                    <br />
+
+                    <strong>
+                        Room Name
                         <br />
-                        <input type="submit" name="submit" value="Enter Room" onClick={(e)=>{
-                            this.props.history.push('/chatroom')
-                            this.props.login(this.state.username, this.state.room)
-                            e.preventDefault()
-                        }} />
-                    </form>
-                    </div>
+                    </strong>
+                    <input type="text" name="chatroomname"
+                        onChange={(ev) => this.setState({ room: ev.target.value })} />
+
+                    <br />
+                    <input type="submit" name="submit" value="JOIN ROOM" onClick={(e) => {
+                        this.props.history.push('/chatroom')
+                        this.props.login(this.state.username, this.state.room)
+                        e.preventDefault()
+                    }} />
                 </div>
+
+                    <div className="App-PHOTO">
+                        <img src="https://files.slack.com/files-tmb/T78PNV5A6-F86QZ96FM-40ca868ee5/joshua-earle-234740_720.png" />
+                    </div> 
+            </div>
         )
     }
 }
 
 export default Home;
+

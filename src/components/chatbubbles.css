@@ -1,0 +1,258 @@
+/*------------------------- MY "TEXT" BUBBLE -----------------------------*/
+.your-chat{
+display: block;
+flex-flow: row wrap;
+align-items: flex-start;
+margin-bottom: 80px;  
+}
+  
+.your-chat .chat-message {
+position: relative;
+left:370px;
+width:50%;
+
+overflow-wrap:break-word;
+text-align: center;
+padding:10px;
+border-bottom-right-radius: 5px;
+color: white;
+font-size: 14px;
+background: rgb(0, 153, 153);;  
+}
+  
+.your-chat .chat-message:after{
+content: "";
+display: flex;;
+position: absolute;
+width: 0;
+height: 0;
+left:375px;
+border: 10px solid rgb(0, 153, 153);
+border-left-color: transparent;
+border-top-color: transparent;
+border-bottom-color: transparent;
+}
+   
+.user-me-name-time{
+position: relative;
+margin: none;
+padding:none;
+top:50px;
+left:153px;
+color: #613A43;
+}
+
+
+/*--------------------------------- OTHERS "TEXT" BUBBLE --------------------------------------*/
+
+.chat {
+display: block;
+flex-flow: row wrap;
+margin-bottom: 80px;    
+}
+    
+.chat .chat-message {
+position: relative;
+overflow-wrap: break-word;
+left:10px;
+width: 50%;
+padding:10px;
+border-bottom-left-radius: 5px;
+text-align: center;
+color: white;
+font-size: 14px;
+background: #C0C0C0;;
+}
+   
+.chat .chat-message:after{
+content: "";
+display: block;
+position: absolute;
+align-self: auto;   
+width: 0;
+height: 0;
+left:-0px;  
+border: 10px solid #C0C0C0;
+border-right-color: transparent;
+border-top-color: transparent;
+border-bottom-color: transparent; 
+}
+    
+
+.user1-name-time{
+color: #613A43;
+position:relative;
+display:flex;   
+top:50px;
+left:-10px;
+margin:none;
+padding:none;   
+font-size: 15px;
+}
+
+
+/*-------------------------------- "MY" IMAGE BUBBLES -----------------------------------------*/
+.your-image{
+display: block;
+flex-flow: row wrap;
+align-items: flex-start;
+margin-bottom: 80px;  
+}
+
+.your-image .image-message img{
+background:transparent;
+border-radius: 10px;
+position: relative;
+left:470px;
+bottom: 5px;
+height:200px;
+width:300px;
+}
+
+.user {
+color: #613A43;
+position: relative;   
+top:10px;
+left:670px;
+font-size: 15px;
+}
+
+/*-------------------------------- "OTHERS" IMAGE BUBBLES -----------------------------------------*/
+
+.chat-image{
+display: block;
+flex-flow: row wrap;
+align-items: flex-start;
+margin-bottom: 50px;  
+}
+  
+.chat-image .chat-image2 img{
+background:transparent;
+border-radius: 10px;
+position: relative;
+left:25px;
+bottom: 5px;
+height:200px;
+width:300px;
+}
+  
+.user1 {
+color: #613A43;
+position: relative;    
+top:10px;
+left:25px;    
+font-size: 15px;
+white-space: 20px;
+}
+
+
+/*------------------------- MY "PDF"  BUBBLE -----------------------------*/
+.your-chat-pdf{
+display: block;
+flex-flow: row wrap;
+align-items: flex-start;
+margin-bottom: 80px;  
+}
+      
+.your-chat-pdf .chat-message-pdf {
+position: relative;
+left:370px;
+width:50%;
+overflow-wrap:break-word;
+text-align: center;
+padding:10px;
+border-bottom-right-radius: 5px;
+color: white;
+font-size: 14px;
+background: rgb(0, 153, 153);;  
+}
+      
+.your-chat-pdf .chat-message-pdf:after{
+content: "";
+display: block;
+position: absolute;
+width: 0;
+height: 0;
+left:375px;
+border: 10px solid rgb(0, 153, 153);
+border-left-color: transparent;
+border-top-color: transparent;
+border-bottom-color: transparent;
+}
+
+    
+.user-me-pdf-name-time{
+position: relative;
+top:50px;
+left:153px;
+ color: #613A43;
+}
+
+#pdf{
+position: relative;
+
+top:0px;
+left:-10px;
+
+height:20px;
+width:20px
+}
+/*------------------------- OTHERS "PDF"  BUBBLE -----------------------------*/
+
+.chat-pdf {
+display: block;
+flex-flow: row wrap;
+margin-bottom: 80px;    
+}
+        
+.chat-pdf .chat-message-pdf {
+position: relative;
+overflow-wrap: break-word;
+left:10px;
+width: 50%;
+padding:10px;
+border-bottom-left-radius: 5px;
+text-align: center;
+color: white;
+font-size: 14px;
+background: #C0C0C0;;
+}
+       
+.chat-pdf .chat-message-pdf:after{
+content: "";
+display: block;
+position: absolute;
+align-self: auto;   
+width: 0;
+height: 0;
+left:-0px;  
+border: 10px solid #C0C0C0;
+border-right-color: transparent;
+border-top-color: transparent;
+border-bottom-color: transparent; 
+}
+
+.user1-pdf-name-time{
+color: #613A43;
+position:relative;
+display:flex;   
+top:50px;
+left:-10px;
+margin:none;
+padding:none;   
+font-size: 15px;
+}
+    
+#pdf-others{
+position: relative;
+
+top:0px;
+left:-10px;
+
+height:20px;
+width:20px
+}
+        
+a{
+    color:white;
+}

@@ -1,0 +1,152 @@
+ 
+ .chat-room{
+    display: flex;
+    width:100%;
+    height:100vh;
+    margin:none;
+}
+
+
+ .App-title2 {
+    color: rgb(0, 153, 153);
+    font-size: 34px;
+    font-family: 'Lily Script One', cursive; 
+    align-self: right; 
+    margin-right: 0px;
+    display: flex;
+    position: relative;
+    top: 18px;
+    left:50px;
+    } 
+
+/*-------------------------------------------- CHAT AREA AND TYPE BOX -------------------------------------*/
+
+ .chatbox-container {
+display: flex;
+flex:1;
+flex-direction: column;
+border-radius:30px;
+}
+
+.chatlogs {
+display: flex;
+padding-top: 20px;
+flex-direction: column;
+width:800px;
+position: absolute;
+right:292px;
+bottom:49px;
+height:92vh;
+overflow-x: hidden;
+overflow-y: scroll;
+background-color: white;
+}
+
+.chatlogs::-webkit-scrollbar {
+width: 10px;
+}
+
+.chatlogs::-webkit-scrollbar-thumb {
+border-radius: 5px;
+background: rgba(0,0,0,.1);
+}
+
+.typebox {
+    display: flex;
+    position: absolute;
+    bottom:1px;
+    right:280px;
+    margin-left: 0px;
+    } */
+    
+    .typebox textarea {
+    display:flex;
+    width:744px;
+    height: 47px;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12px;
+    color: #333;
+    
+    } 
+    .typebox textarea::-webkit-scrollbar {
+    width: 10px;
+    background: black;
+    }
+    
+    .typebox textarea::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
+    }
+    
+
+button {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 16px;
+    background: #613a43;
+    text-decoration: none;
+    margin:none;
+    }
+    
+    button:hover {
+    background: #e3bab3;
+    text-decoration: none;
+    } 
+/*-------------------------------------------- SIDE BAR-USERNAMES-ROOMNAME ----------------------------------------------------*/
+
+.active-users{
+    position: relative;
+    top:20px;
+    left:0px; 
+}
+
+.active-users p{
+    position: relative;
+    top:-10px;
+    right:40px;
+    font-size: 20px;
+}
+
+.users {
+flex: 1;
+color: #613A43;
+display: flex;
+flex-direction: column;
+font-size: 14px;
+background-color: rgb(231, 231, 231);
+position: absolute;
+bottom:0px;
+width: 20%;
+height:580px;;
+padding: 5%;
+float: left;
+}
+
+.users a{
+    color:red;
+    position: absolute;
+    top:68px;
+    left:70px; 
+}
+
+.users b{
+    font-size: xx-large;
+}
+
+.users strong{
+    position: relative;
+    top:0px;
+    left:-40px; 
+}
+/*---------------------------------------- SIDE PIC --------------------------------------------*/
+
+.background-photo{
+    width:292px;
+    background-image: url("https://files.slack.com/files-tmb/T78PNV5A6-F86QZ96FM-40ca868ee5/joshua-earle-234740_720.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
