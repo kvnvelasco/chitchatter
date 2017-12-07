@@ -125,6 +125,7 @@ class ChatRoom extends Component {
           <Chatbox onClick={this.sendMessage}/>
           </div>
           <SideImage/>
+          <Toaster />
       </div>
 
     )
