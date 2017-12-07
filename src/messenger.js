@@ -4,8 +4,8 @@ export class Messenger {
     this.subscribers = []
   }
 
-  dispatch(message) {
-    this.subscribers.forEach(subscriber => subscriber(message))
+  dispatch(message, bgcolor) {
+    this.subscribers.forEach(subscriber => subscriber(message, bgcolor))
   }
 
   subscribe(subscriber) {
@@ -17,4 +17,4 @@ export class Messenger {
   }
 }
 
-export const sidebarChatBoxMessenger = new Messenger()
+export const toasterMessenger = new Messenger()

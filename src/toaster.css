@@ -1,0 +1,31 @@
+.toaster-container{
+    position: absolute;
+    top: 10px;
+    right:0;
+}
+
+.toaster-item{
+    color:white;
+    padding:10px;
+    font-size:smaller;
+    opacity: 1;
+    margin-top:10px;
+    height: 40px;
+    -webkit-animation-duration: 0.5s;animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;animation-fill-mode: both;
+ }
+ 
+ @-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+ }

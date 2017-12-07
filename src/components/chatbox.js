@@ -5,6 +5,7 @@ import Image from '../image.png';
 import Clip from '../clip.png';
 import ReactFileReader from 'react-file-reader';
 import './chatbox.css'
+import { toasterMessenger } from '../messenger';
 
 
 class Chatbox extends Component {
@@ -33,16 +34,20 @@ class Chatbox extends Component {
     }
 
     handleClick = () => {
-        this.props.onClick(this.state.currentMessage)
-        this.setState({ currentMessage: "" })
+        if (!this.state.currentMessage) {
+            toasterMessenger.dispatch('You cant send blank messages', 'orange')
+        } else {
+            this.props.onClick(this.state.currentMessage)
+            this.setState({ currentMessage: "" })
+        }   
     }
 
     handleFiles = (files) => {
-        if(this.props.onAttach)
-            this.props.onAttach(files)
+        this.props.sendFiles(files)
     }
 
     render() {
+        
         return (
             <div className="chatbox">
                 <div className="upload" style={{ display: this.state.open ? "inline" : "none"}}>

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { toasterMessenger } from '../messenger'
+import Toaster from '../toaster'
 
 class Home extends Component{
     state = {
@@ -7,20 +9,16 @@ class Home extends Component{
     }
     render(){
         return(
-            
             <div>
-         <header className="App-header">
-          <img src="https://image.ibb.co/gvqtiR/logo.png" className="App-logo" alt="logo" />
-          <h1 className="App-title">ChitChat</h1>
-            </header>
-         <br /><p className="App-intro">
-          Talk exclusively to the ones who matter. 
-          <br />Come and ChitChat. <br /><br />
-         </p>
+                <header className="App-header">
+                    <img src="https://image.ibb.co/gvqtiR/logo.png" className="App-logo" alt="logo" />
+                    <h1 className="App-title">ChitChat</h1>
+                </header>
+                <br /><p className="App-intro"> Talk exclusively to the ones who matter. <br />Come and ChitChat. <br /><br /></p>
+                <Toaster />
                 <div className="container">
                     <p>Join a Chatroom</p>
                     <form>
-               
                         <div className="form-inputs">
                             <input 
                             onChange={(ev) => this.setState({ username: ev.target.value })}
@@ -37,10 +35,11 @@ class Home extends Component{
                             this.props.history.push('/chatroom')
                             this.props.login(this.state.username, this.state.room)
                             e.preventDefault()
-                        }} />
+                            }} 
+                        />
                     </form>
-                    </div>
                 </div>
+            </div>
         )
     }
 }

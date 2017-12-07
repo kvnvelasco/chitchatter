@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Chatbox from '../components/chatbox.js'
-
+import { toasterMessenger } from '../messenger'
+import Toaster from '../toaster'
+import { setTimeout } from 'timers';
 
 class ChatRoom extends Component {
 
@@ -20,13 +22,14 @@ class ChatRoom extends Component {
 
   componentWillMount() {
 
-
     if (!this.props.username || !this.props.room)
       return this.props.history.replace('/')
+
 
     const socket = new WebSocket("ws://188.166.221.63:8000")
     socket.onmessage = this.messageHandler
     socket.onopen = () => {
+      
       this.setState({ socket })
       socket.send(JSON.stringify({
         type: 'join',
@@ -39,10 +42,17 @@ class ChatRoom extends Component {
   }
 
   messageHandler = (socketData) => {
-
+    console.log(socketData)
     const data = JSON.parse(socketData.data)
+    
+    if (data.error) {
+      setTimeout(() => toasterMessenger.dispatch(data.error, '#ff4d4d'), 200)
+      return this.props.history.replace('/')
+    }
+
     switch (data.type) {
       case "join_success":
+        toasterMessenger.dispatch('Room Successfully Joined','#80ff80')
         break;
       case "history":
         this.setState({ messages: data.data.messages })
@@ -77,9 +87,14 @@ class ChatRoom extends Component {
         data: { message: chat }
       }
     ))
-
   }
 
+  sendFiles = (file) => {
+    console.log(file)
+    var formData = new FormData(file);
+
+    
+  }
 
   logOut = () => {
     this.state.socket.send(JSON.stringify(
@@ -149,9 +164,10 @@ class ChatRoom extends Component {
               <div className="chatbar">
                 <Chatbox
                   onClick={this.sendMessage}
+                  sendFiles={this.sendFiles}
                 />
               </div>
-
+              <Toaster />
             </div>
           </div>
         </div>
