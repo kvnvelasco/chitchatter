@@ -53,7 +53,8 @@ class Home extends Component {
 
                     <div className="App-PHOTO">
                         <img src={CornerImage} />
-                    </div> 
+                    </div>
+                    <Toaster/> 
             </div>
         )
     }
