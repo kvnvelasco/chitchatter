@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './home.css';
 import CornerImage from '../side-image.png';
+import { toasterMessenger } from '../messenger'
+import Toaster from '../toaster'
 
 
 class Home extends Component {
@@ -51,7 +53,8 @@ class Home extends Component {
 
                     <div className="App-PHOTO">
                         <img src={CornerImage} />
-                    </div> 
+                    </div>
+                    <Toaster/> 
             </div>
         )
     }
