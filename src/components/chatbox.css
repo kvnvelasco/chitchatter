@@ -1,13 +1,21 @@
 .chatbox{
     display: flex;
-    height: 40px
+    position: absolute;
+    bottom:10px;
+    left:300px;
+    width:none;
+    height: 40px;
+    
 }
 /* ########## Upload button and Popup styles ########## */
 .plus{
+    position: relative;
+    height:39px;
     width: 40px;
     padding: 10px;
     background:#e6e6e6;
     box-shadow: none;
+    border:none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-top-left-radius: 50%;
@@ -21,7 +29,10 @@
 
 .plus img{
     width: 20px;
-    display: block;
+    position: absolute;
+    bottom:10px;
+    right:8px;
+
     margin: 0 auto
 }
 
@@ -72,7 +83,10 @@
 
 /* ########## Input Box styles ######### */
 .chatbox input{
+    position: relative;
+    bottom:5px;
     width: 650px;
+    height:39px;
     padding-left: 15px;
     border-radius: 0;
     border-right-style: none;
@@ -91,13 +105,15 @@ input:focus{
 .send{
     background: #33cccc;
     width:60px;
+    height:39px;
     padding-left: 15px;
     box-shadow: none;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    outline: none
+    outline: none;
+    border:none;
 }
 
 .send:hover{
@@ -107,6 +123,9 @@ input:focus{
 .send img{
     width: 20px;
     padding-bottom: 15px;
+    position: relative;
+    top:8px;
+    right:8px;
 }
 
 

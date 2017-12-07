@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+
+import React, { Component } from 'react'
+import {SideBar, ChatHistory, SideImage} from '../components/chatRoom.js'
 import Chatbox from '../components/chatbox.js'
 import { toasterMessenger } from '../messenger'
 import Toaster from '../toaster'
 import { setTimeout } from 'timers';
+
 
 class ChatRoom extends Component {
 
@@ -42,7 +45,10 @@ class ChatRoom extends Component {
   }
 
   messageHandler = (socketData) => {
+<<<<<<< HEAD
     console.log(socketData)
+=======
+>>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
     const data = JSON.parse(socketData.data)
     
     if (data.error) {
@@ -55,7 +61,7 @@ class ChatRoom extends Component {
         toasterMessenger.dispatch('Room Successfully Joined','#80ff80')
         break;
       case "history":
-        this.setState({ messages: data.data.messages })
+        this.setState({ messages: data.data.messages})
         if (this.chatNode)
           this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
@@ -70,10 +76,10 @@ class ChatRoom extends Component {
         break;
       case "joined":
         this.setState({ users: [...this.state.users, data.data.name] })
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.name} has entered the room`, author: '' }] })
+        this.setState({ messages: [...this.state.messages, { message:`${data.data.name} has entered the room`, system: true  }] })
         break;
       case "left":
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room` }] })
+        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room`, system: true }] })
         var i = this.state.users.findIndex((currentIndex) => data.data.username === currentIndex)
         this.setState({ users: this.state.users.slice(0, i).concat(this.state.users.slice(i + 1)) })
         break;
@@ -87,6 +93,12 @@ class ChatRoom extends Component {
         data: { message: chat }
       }
     ))
+<<<<<<< HEAD
+=======
+    this.setState({
+      currentMessage: ''
+    })
+>>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
   }
 
   sendFiles = (file) => {
@@ -107,9 +119,9 @@ class ChatRoom extends Component {
   }
 
 
-
   render() {
     return (
+<<<<<<< HEAD
       <div className="main-container" onClick={this.state.display ? this.closeAttach : null} >
         <div className="chatroom-container">
           <div className="header">
@@ -169,10 +181,22 @@ class ChatRoom extends Component {
               </div>
               <Toaster />
             </div>
+=======
+      <div className="chat-room">
+          <div id="chat-title2">ChitChatter</div>
+          <SideBar room={this.props.room} 
+                   users={this.state.users}
+                   logOut={this.logOut}/>
+          <div className="chatbox-container">
+          <ChatHistory messages={this.state.messages}
+                       url={this.state.url}
+                       username={this.props.username}
+                       messageLength={this.state.messages.length}
+                       />
+          <Chatbox onClick={this.sendMessage}/>
+>>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
           </div>
-        </div>
-        <div className="img">
-        </div>
+          <SideImage/>
       </div>
 
     )
