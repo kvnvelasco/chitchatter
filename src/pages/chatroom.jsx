@@ -45,10 +45,6 @@ class ChatRoom extends Component {
   }
 
   messageHandler = (socketData) => {
-<<<<<<< HEAD
-    console.log(socketData)
-=======
->>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
     const data = JSON.parse(socketData.data)
     
     if (data.error) {
@@ -93,12 +89,6 @@ class ChatRoom extends Component {
         data: { message: chat }
       }
     ))
-<<<<<<< HEAD
-=======
-    this.setState({
-      currentMessage: ''
-    })
->>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
   }
 
   sendFiles = (file) => {
@@ -121,67 +111,6 @@ class ChatRoom extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div className="main-container" onClick={this.state.display ? this.closeAttach : null} >
-        <div className="chatroom-container">
-          <div className="header">
-            <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" />
-            <h1 className="App-title2" >ChitChat</h1>
-            {/*<button onClick={this.logOut} className="button-jumbotron">Leave Room</button>*/}
-          </div>
-          <div className="sidebar">
-            <div className="chat-room">
-              {this.props.room}
-            </div>
-
-            <div className="members users container-fluid">
-              {
-                this.state.users.map(user => (
-                  <p>{user}</p>
-                ))
-              }
-            </div>
-          </div>
-
-
-          <div className="message-container">
-            <div className="chatbox-container">
-              <div ref={(el) => this.chatNode = el} className="chatlogs">
-                {
-                  this.state.messages.map(message => {
-
-                    if (message.author === this.props.username) {
-                      return (
-                        <div className="yourChat">
-                          <p className="chat-message">{message.message}</p>
-                          <p className="user1">{message.author}</p>
-                        </div>
-                      )
-
-                    }
-                    else {
-                      return (
-                        <div className="chat">
-                          {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
-                          <img className="chat-message" src={message.message} />
-                          <p className="user1">{message.author}</p>
-                        </div>
-                      )
-
-                    }
-
-                  })
-                }
-              </div>
-              <div className="chatbar">
-                <Chatbox
-                  onClick={this.sendMessage}
-                  sendFiles={this.sendFiles}
-                />
-              </div>
-              <Toaster />
-            </div>
-=======
       <div className="chat-room">
           <div id="chat-title2">ChitChatter</div>
           <SideBar room={this.props.room} 
@@ -194,7 +123,6 @@ class ChatRoom extends Component {
                        messageLength={this.state.messages.length}
                        />
           <Chatbox onClick={this.sendMessage}/>
->>>>>>> bb4238c6fcb1fd35bad9e746bd64997df300b1d7
           </div>
           <SideImage/>
       </div>
