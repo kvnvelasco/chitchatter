@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+
+import React, { Component } from 'react'
+import {SideBar, ChatHistory, SideImage} from '../components/chatRoom.js'
 import Chatbox from '../components/chatbox.js'
+
 
 
 class ChatRoom extends Component {
@@ -39,13 +42,12 @@ class ChatRoom extends Component {
   }
 
   messageHandler = (socketData) => {
-
     const data = JSON.parse(socketData.data)
     switch (data.type) {
       case "join_success":
         break;
       case "history":
-        this.setState({ messages: data.data.messages })
+        this.setState({ messages: data.data.messages})
         if (this.chatNode)
           this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
@@ -60,10 +62,10 @@ class ChatRoom extends Component {
         break;
       case "joined":
         this.setState({ users: [...this.state.users, data.data.name] })
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.name} has entered the room`, author: '' }] })
+        this.setState({ messages: [...this.state.messages, { message:`${data.data.name} has entered the room`, system: true  }] })
         break;
       case "left":
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room` }] })
+        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room`, system: true }] })
         var i = this.state.users.findIndex((currentIndex) => data.data.username === currentIndex)
         this.setState({ users: this.state.users.slice(0, i).concat(this.state.users.slice(i + 1)) })
         break;
@@ -77,7 +79,9 @@ class ChatRoom extends Component {
         data: { message: chat }
       }
     ))
-
+    this.setState({
+      currentMessage: ''
+    })
   }
 
 
@@ -92,71 +96,22 @@ class ChatRoom extends Component {
   }
 
 
-
   render() {
     return (
-      <div className="main-container" onClick={this.state.display ? this.closeAttach : null} >
-        <div className="chatroom-container">
-          <div className="header">
-            <img src="https://image.ibb.co/gvqtiR/logo.png" className="Applogo2 example-content-secondary" alt="logo" />
-            <h1 className="App-title2" >ChitChat</h1>
-            {/*<button onClick={this.logOut} className="button-jumbotron">Leave Room</button>*/}
+      <div className="chat-room">
+          <div id="chat-title2">ChitChatter</div>
+          <SideBar room={this.props.room} 
+                   users={this.state.users}
+                   logOut={this.logOut}/>
+          <div className="chatbox-container">
+          <ChatHistory messages={this.state.messages}
+                       url={this.state.url}
+                       username={this.props.username}
+                       messageLength={this.state.messages.length}
+                       />
+          <Chatbox onClick={this.sendMessage}/>
           </div>
-          <div className="sidebar">
-            <div className="chat-room">
-              {this.props.room}
-            </div>
-
-            <div className="members users container-fluid">
-              {
-                this.state.users.map(user => (
-                  <p>{user}</p>
-                ))
-              }
-            </div>
-          </div>
-
-
-          <div className="message-container">
-            <div className="chatbox-container">
-              <div ref={(el) => this.chatNode = el} className="chatlogs">
-                {
-                  this.state.messages.map(message => {
-
-                    if (message.author === this.props.username) {
-                      return (
-                        <div className="yourChat">
-                          <p className="chat-message">{message.message}</p>
-                          <p className="user1">{message.author}</p>
-                        </div>
-                      )
-
-                    }
-                    else {
-                      return (
-                        <div className="chat">
-                          {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
-                          <img className="chat-message" src={message.message} />
-                          <p className="user1">{message.author}</p>
-                        </div>
-                      )
-
-                    }
-
-                  })
-                }
-              </div>
-              <div className="chatbar">
-                <Chatbox
-                  onClick={this.sendMessage}
-                />
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div className="img">
-        </div>
+          <SideImage/>
       </div>
 
     )
