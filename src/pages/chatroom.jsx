@@ -1,3 +1,4 @@
+import { error } from 'util';
 import React from 'react';
 import { SideBar, ChatHistory, SideImage } from '../components/chatRoom.js'
 import Chatbox from '../components/chatbox.js'
@@ -87,11 +88,18 @@ class ChatRoom extends React.Component {
     ))
   }
 
-  sendFiles = (file) => {
-    var formData = new FormData('file', file['0']);
-    const url = '188.166.221.63:8000/upload'
+  sendFiles = async (file) => {
+    let formData = new FormData();
+    formData.append('file', file['0'], file['0'].name);
+    const url = 'http://188.166.221.63:8000/upload'
 
-    //fetch(url)
+    const res = await fetch(url, {method: 'POST', body: formData})
+    res.ok ? console.log('connection success') : console.log('connection failed')
+
+    const json = await res.json()
+    const imageUrl = `http://188.166.221.63:8000${json.path}`
+
+    this.sendMessage(imageUrl)
   }
 
   logOut = () => {
