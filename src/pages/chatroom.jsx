@@ -1,17 +1,28 @@
+
 import React, { Component } from 'react'
 import {SideBar, ChatHistory, SideImage} from '../components/chatRoom.js'
+import Chatbox from '../components/chatbox.js'
 
 
 
 class ChatRoom extends Component {
+
   state = {
     users: [],
     messages: [],
-    currentMessage: "",
-    socket: null
+    socket: null,
+  }
+
+  openAttach = () => {
+    this.setState({ display: !this.state.display })
+  }
+
+  closeAttach = () => {
+    this.setState({ display: false })
   }
 
   componentWillMount() {
+
 
     if (!this.props.username || !this.props.room)
       return this.props.history.replace('/')
@@ -31,13 +42,12 @@ class ChatRoom extends Component {
   }
 
   messageHandler = (socketData) => {
-
     const data = JSON.parse(socketData.data)
     switch (data.type) {
       case "join_success":
         break;
       case "history":
-        this.setState({ messages: data.data.messages })
+        this.setState({ messages: data.data.messages})
         if (this.chatNode)
           this.chatNode.scrollTop = this.chatNode.scrollHeight
         break;
@@ -52,25 +62,21 @@ class ChatRoom extends Component {
         break;
       case "joined":
         this.setState({ users: [...this.state.users, data.data.name] })
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.name} has entered the room`, author: '' }] })
+        this.setState({ messages: [...this.state.messages, { message:`${data.data.name} has entered the room`, system: true  }] })
         break;
       case "left":
-        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room` }] })
+        this.setState({ messages: [...this.state.messages, { message: `${data.data.username} has left the room`, system: true }] })
         var i = this.state.users.findIndex((currentIndex) => data.data.username === currentIndex)
         this.setState({ users: this.state.users.slice(0, i).concat(this.state.users.slice(i + 1)) })
         break;
     }
   }
 
-  
-  sendMessage = () => {
+  sendMessage = (chat) => {
     this.state.socket.send(JSON.stringify(
       {
         type: 'message',
-        data: {
-          message: this.state.currentMessage
-          // 'https://files.slack.com/files-tmb/T78PNV5A6-F86QZ96FM-40ca868ee5/joshua-earle-234740_720.png'
-        }
+        data: { message: chat }
       }
     ))
     this.setState({
@@ -99,15 +105,11 @@ class ChatRoom extends Component {
                    logOut={this.logOut}/>
           <div className="chatbox-container">
           <ChatHistory messages={this.state.messages}
+                       url={this.state.url}
                        username={this.props.username}
                        messageLength={this.state.messages.length}
                        />
-            <div className="typebox">
-                <textarea value={this.state.currentMessage} 
-                          onChange={(ev) => this.setState({ currentMessage: ev.target.value })}>
-                </textarea>
-                <button onClick={this.sendMessage} >Send</button>
-            </div> 
+          <Chatbox onClick={this.sendMessage}/>
           </div>
           <SideImage/>
       </div>

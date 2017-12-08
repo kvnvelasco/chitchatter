@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import './home.css';
+import CornerImage from '../side-image.png';
 
 
 class Home extends Component {
     state = {
         username: "",
         room: ""
+    }
+
+    EnterKey = (e) => {
+        if(e.key === "Enter"){
+            this.props.history.push('/chatroom')
+            this.props.login(this.state.username, this.state.room)
+        }
     }
     render() {
         return (
@@ -30,7 +38,8 @@ class Home extends Component {
                         <br />
                     </strong>
                     <input type="text" name="chatroomname"
-                        onChange={(ev) => this.setState({ room: ev.target.value })} />
+                        onChange={(ev) => this.setState({ room: ev.target.value })} 
+                        onKeyPress={this.EnterKey}/>
 
                     <br />
                     <input type="submit" name="submit" value="JOIN ROOM" onClick={(e) => {
@@ -41,7 +50,7 @@ class Home extends Component {
                 </div>
 
                     <div className="App-PHOTO">
-                        <img src="https://files.slack.com/files-tmb/T78PNV5A6-F86QZ96FM-40ca868ee5/joshua-earle-234740_720.png" />
+                        <img src={CornerImage} />
                     </div> 
             </div>
         )

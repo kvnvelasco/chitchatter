@@ -44,7 +44,7 @@ export class ChatBubblesIMAGEME extends Component {
         return (
             <div className="your-image">
                 <div className="image-message">
-                    <img src={this.props.message} />
+                    <img src={this.props.messages} />
                     <div className="user">
                         <strong>
                         7:45 PM {this.props.author}
@@ -62,7 +62,7 @@ export class ChatBubblesIMAGEOTHERS extends Component {
             <div className="chat-image">
                 {/* <img className="user-photo" src="https://image.ibb.co/nQpP8R/cat1.jpg" /> */}
                 <div className="chat-image2">
-                    <img src={this.props.message} />
+                    <img src={this.props.messages} />
                     <div className="user1">
                         <strong>
                             {this.props.author} 7:45 PM

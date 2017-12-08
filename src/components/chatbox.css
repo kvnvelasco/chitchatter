@@ -1,0 +1,133 @@
+.chatbox{
+    display: flex;
+    position: absolute;
+    bottom:10px;
+    left:300px;
+    width:none;
+    height: 40px;
+    
+}
+/* ########## Upload button and Popup styles ########## */
+.plus{
+    position: relative;
+    height:39px;
+    width: 40px;
+    padding: 10px;
+    background:#e6e6e6;
+    box-shadow: none;
+    border:none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    outline: none
+}
+
+.plus:hover{
+    background:silver;
+}
+
+.plus img{
+    width: 20px;
+    position: absolute;
+    bottom:10px;
+    right:8px;
+
+    margin: 0 auto
+}
+
+.upload{
+    position: absolute;
+    transform: translate(20px,-40px);
+    margin-left: 2px;
+}
+
+.attach{
+    height: 30px;
+    width: 90px;
+    display: flex;
+    padding-top: 5px;
+    box-shadow: 1px 6px 15px grey;
+    background: white
+}
+
+.attach img{
+    width: 20px;
+    height: 20px;
+}
+
+.insertImage{
+    margin-left:25px;
+    margin-right: 15px
+}
+
+.bubble:before{
+    content: "";
+    position: absolute;
+    bottom: -33px;
+    left: 0;
+    border-left: 10px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  
+  .bubble:after{
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    border-right: 25px solid transparent;
+    border-top: 15px solid #fff;
+    border-bottom: 15px solid transparent;
+  }
+
+/* ########## Input Box styles ######### */
+.chatbox input{
+    position: relative;
+    bottom:5px;
+    width: 650px;
+    height:39px;
+    padding-left: 15px;
+    border-radius: 0;
+    border-right-style: none;
+    border-left-style: none
+}
+
+input::-webkit-input-placeholder{
+    opacity: .7;
+}
+
+input:focus{
+    outline: none
+}
+
+/* ########## Send Button ########### */
+.send{
+    background: #33cccc;
+    width:60px;
+    height:39px;
+    padding-left: 15px;
+    box-shadow: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    outline: none;
+    border:none;
+}
+
+.send:hover{
+    background: grey;
+}
+
+.send img{
+    width: 20px;
+    padding-bottom: 15px;
+    position: relative;
+    top:8px;
+    right:8px;
+}
+
+
+
+  

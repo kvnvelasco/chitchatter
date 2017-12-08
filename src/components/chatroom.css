@@ -139,9 +139,15 @@ float: left;
     top:0px;
     left:-40px; 
 }
+
+.users h2{
+    position: relative;
+    top:0px;
+    left:-40px; 
+}
 /*---------------------------------------- SIDE PIC --------------------------------------------*/
 
-.background-photo{
+.background-photo {
     width:292px;
     background-image: url("https://files.slack.com/files-tmb/T78PNV5A6-F86QZ96FM-40ca868ee5/joshua-earle-234740_720.png");
     background-position: center;
@@ -150,3 +156,8 @@ float: left;
 }
 
 
+.joined-leave{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom: 50px;
+}
