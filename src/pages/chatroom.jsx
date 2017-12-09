@@ -1,7 +1,5 @@
-import { error } from 'util';
 import React from 'react';
-import { SideBar, ChatHistory, SideImage } from '../components/chatRoom.js'
-import Chatbox from '../components/chatbox.js'
+import { SideBar, ChatHistory } from '../components/chatarea.js'
 import { toasterMessenger } from '../messenger'
 import Toaster from '../toaster'
 import { setTimeout } from 'timers';
@@ -114,23 +112,23 @@ class ChatRoom extends React.Component {
 
   render() {
     return (
-      <div className="chat-room">
-          <div id="chat-title2">ChitChatter</div>
-          <SideBar room={this.props.room} 
-                   users={this.state.users}
-                   logOut={this.logOut}/>
-          <div className="chatbox-container">
-          <ChatHistory messages={this.state.messages}
-                       url={this.state.url}
-                       username={this.props.username}
-                       messageLength={this.state.messages.length}
-                       />
-          <Chatbox 
+      <div className="chatroom">
+          <div id="header">ChitChatter</div>
+          <SideBar 
+            room={this.props.room} 
+            users={this.state.users}
+            logOut={this.logOut}
+          />
+          <ChatHistory 
+            messages={this.state.messages}
+            url={this.state.url}
+            username={this.props.username}
+            messageLength={this.state.messages.length}
             onClick={this.sendMessage}
             sendFiles={this.sendFiles}
           />
-          </div>
-          <SideImage/>
+          <div className='photo-chatroom'></div>
+          {/* <SideImage/> */}
           <Toaster />
       </div>
 

@@ -1,11 +1,201 @@
-.App-PHOTO img{
+.home {
+    /* grid-column: 1; */
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 50px 1fr;
+    height: 100vh;
+    width: 100vw;   
+}
+
+.sidebar > h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.sidebar > .user-input {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 50% 10%;   
+    color: #BDC3C7;
+}
+
+.photo {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    background: url('../side-image.png') no-repeat center;
+    background-size: cover;
+}
+
+.sidebar h1 {
+    font-family: 'Lily Script One', cursive;
+    text-align: center;    
+    font-size: 30px;
+    color: #76D7C4;
+}
+
+.user-input em {
+    text-align: center;
+    font-size: 17px;
+    padding: 0 25px;
+    margin-bottom: 15px;
+}
+
+.user-input input {
+    height: 35px;
+    border-color: #BDC3C7;
+    border-width: 1px;
+    margin: 5px 0;
+    padding-left: 10px;
+    color: #000000;
+    font-size: 20px;
+}
+
+.user-input strong {
+    color: #909497;
+    margin: 3px 0;
+}
+
+.user-input #join-now {
+    background-color: #76D7C4;
+    border: none;
+    color: #ffffff;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#join-now:hover {
+    background-color: #17A589; 
+}
+
+.chatroom {
+    display: grid;
+    grid-template-columns: 20% 60% 1fr;
+    grid-template-rows: 75px 1fr;
+    height: 100vh;
+    width: 100vw; 
+    grid-template-areas: 
+        "header . photo"
+        "side chat photo"
+}
+
+#header {
+    /* grid-column: 1/3;
+    grid-row: 1/2; */
+    grid-area: header;
+    font-family: 'Lily Script One', cursive;
+    font-size: 30px;
+    color: #76D7C4;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.sidebar-chatroom {
+    grid-area: side;
+    /* grid-column: 1/2;
+    grid-row: 2/3; */
+    background-color: #ECF0F1;
+    padding-top: 30px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.sidebar-chatroom > .active {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.chatarea {
+    grid-area: chat;
+    /* grid-column: 2/3;
+    grid-row: 2/3; */
+    display: flex;
+    overflow: hidden;
+}
+
+.chatarea > #chatbox {
+    align-self: flex-end;
+}   
+
+.photo-chatroom {
+    grid-area: photo;
+    /* grid-column: 3/4;
+    grid-row: 1/3; */
+    background: url('../side-image.png') no-repeat center;
+    background-size: cover;
+}
+
+#chatbox {
+    grid-area: box;
+    width: 100%;
+}
+
+
+.chat-room {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto auto;
+    width: 100%;
+}
+
+.chat-room > strong {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.chat-room > h2 {
+    grid-column: 1/3;
+    grid-row: 2/3; 
+    margin: 0 0 20px 0;
+    padding: 0; 
+    font-weight: bold;
+}
+
+.chat-room a {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color: red;
+    margin-left: 5px; 
+}
+
+/* .photo img {
+    height: auto;
+    width: 100%;
+} */
+
+/* .home {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    width: 100vh;
+}
+
+.sidebar {
+    grid-column: 1/2;
+    display: flex;
+    position: relative;
+    bottom:20px;
+    margin:none;
+    flex-direction: column;
+    justify-content: center;
+    padding:10px;
+    width:230px;
+}
+
+.photo {
+    grid-column: 2/3;
+}
+
+.photo img{
     height:100vh;
-    width:100%;
+    width: auto;
 }
-.App-PHOTO{
-    flex:1;
-}
-.App-header{
+
+.home {
     display: flex;
     height:100vh;
     margin:none;
@@ -17,7 +207,7 @@
 }
 
 span {
- color: rgb(0, 153, 153);
+color: rgb(0, 153, 153);
 margin:none;
 align-self: center;
 position: absolute;
@@ -31,16 +221,7 @@ font-family: 'Lily Script One', cursive;
 
 
 
-.container {
-display: flex;
-position: relative;
-bottom:20px;
-margin:none;
-flex-direction: column;
-justify-content: center;
-padding:10px;
-width:230px;
-}
+
 
 em {
 position: relative;
@@ -67,4 +248,4 @@ height:35px;
 margin:none;
 background-color:rgb(0, 153, 153);
 color:white;
-}
+} */

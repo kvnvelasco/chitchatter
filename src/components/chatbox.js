@@ -3,8 +3,8 @@ import Plus from '../plus.png';
 import Send from '../send.png';
 import Image from '../image.png';
 import Clip from '../clip.png';
-import ReactFileReader from 'react-file-reader';
-import './chatbox.css'
+import ReactFileReader from 'react-file-reader' ;
+//import './chatbox.css'
 import { toasterMessenger } from '../messenger';
 
 
@@ -47,9 +47,8 @@ class Chatbox extends Component {
     }
 
     render() {
-        
         return (
-            <div className="chatbox">
+            <div id="chatbox">
                 <div className="upload" style={{ display: this.state.open ? "inline" : "none"}}>
                     <div className="attach bubble">
                         <ReactFileReader fileTypes={[".png", ".jpg",".gif"]} handleFiles={this.handleFiles}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './chatbubbles.css'
+//import './chatbubbles.css'
 /*-------------------------------------- TEXT BUBBLES ----------------------------------*/
 export class ChatBubblesME extends Component {
     render() {

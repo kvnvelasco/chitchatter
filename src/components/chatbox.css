@@ -1,12 +1,11 @@
-.chatbox{
+/* .chatbox{
     display: flex;
     position: absolute;
     bottom:10px;
     left:300px;
-    width:none;
     height: 40px;
-    
-}
+    width: 100%;
+} */
 /* ########## Upload button and Popup styles ########## */
 .plus{
     position: relative;
