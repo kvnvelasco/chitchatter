@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Plus from '../plus.png';
 import Send from '../send.png';
 import Image from '../image.png';
 import Clip from '../clip.png';
 import ReactFileReader from 'react-file-reader' ;
-//import './chatbox.css'
+import './chatbox.css'
 import { toasterMessenger } from '../messenger';
 
 
-class Chatbox extends Component {
+class Chatbox extends React.Component {
     state = {
         currentMessage: "",
         open:false

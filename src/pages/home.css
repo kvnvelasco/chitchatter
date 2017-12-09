@@ -1,5 +1,4 @@
 .home {
-    /* grid-column: 1; */
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-rows: 50px 1fr;
@@ -33,7 +32,7 @@
     font-family: 'Lily Script One', cursive;
     text-align: center;    
     font-size: 30px;
-    color: #76D7C4;
+    color: #33cccc;
 }
 
 .user-input em {
@@ -83,12 +82,10 @@
 }
 
 #header {
-    /* grid-column: 1/3;
-    grid-row: 1/2; */
     grid-area: header;
     font-family: 'Lily Script One', cursive;
     font-size: 30px;
-    color: #76D7C4;
+    color: #33cccc;
     display: flex;
     align-self: center;
     justify-content: center;
@@ -96,8 +93,6 @@
 
 .sidebar-chatroom {
     grid-area: side;
-    /* grid-column: 1/2;
-    grid-row: 2/3; */
     background-color: #ECF0F1;
     padding-top: 30px;
     padding-left: 20%;
@@ -111,29 +106,31 @@
 
 .chatarea {
     grid-area: chat;
-    /* grid-column: 2/3;
-    grid-row: 2/3; */
-    display: flex;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 75px;
 }
 
-.chatarea > #chatbox {
-    align-self: flex-end;
+.chat-messages {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#chatbox {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    height: 65%;
 }   
 
 .photo-chatroom {
     grid-area: photo;
-    /* grid-column: 3/4;
-    grid-row: 1/3; */
     background: url('../side-image.png') no-repeat center;
     background-size: cover;
 }
-
-#chatbox {
-    grid-area: box;
-    width: 100%;
-}
-
 
 .chat-room {
     display: grid;
