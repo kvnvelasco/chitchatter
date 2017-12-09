@@ -39,7 +39,7 @@ export class ChatHistory extends React.Component {
             <div ref={(el) => this.chatNode = el} className="chatarea">
                 <div className="chat-messages">
                     {this.props.messages.map(message => {
-                        if(message.system === true){
+                        if(message.system === true) {
                             return(
                                 <div className="joined-leave">
                                     <em>{message.message}</em>
@@ -47,7 +47,7 @@ export class ChatHistory extends React.Component {
                             )
                             // Handle a case where there is no message.message
                             // but a message.fileURL instead
-                        }else if (message.author === this.props.username) {
+                        } else if (message.author === this.props.username) {
                             return (
                                 <div>
                                     {/* <ChatBubblesME message={message.message}

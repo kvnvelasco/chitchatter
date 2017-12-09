@@ -109,6 +109,7 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 75px;
+
 }
 
 .chat-messages {
@@ -157,6 +158,29 @@
     grid-row: 1/2;
     color: red;
     margin-left: 5px; 
+}
+
+@media screen and (max-width: 770px) {
+    .chatroom {
+        grid-template-areas: 
+        "header header photo"
+        "side chat photo"
+    }
+    
+    #header {
+        justify-content: left;
+        margin-left: 20px; 
+    } 
+}
+
+@media screen and (max-width: 426px) {
+    .chatroom {
+        grid-template-columns: 30% 70%; 
+        grid-template-areas: 
+            "header header"
+            "side chat"
+    }
+
 }
 
 /* .photo img {
