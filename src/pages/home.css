@@ -108,7 +108,7 @@
     grid-area: chat;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 75px;
+    grid-template-rows: 1fr 70px;
     grid-template-areas: 
         "chatmessages"
         "chatbox"
@@ -118,12 +118,12 @@
     grid-area: chatmessages;
     /* grid-column: 1/2;
     grid-row: 1/2; */
-    padding: 0 5%;
+    padding: 0 5% 20px 5%;
     width: 100%;
     height: 100%;
     /* position: absolute; */
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }

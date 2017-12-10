@@ -1,7 +1,7 @@
 import React from 'react'
 import './chatbubbles.css'
 
-export const Chatbubble = (props) => {
+const Chatbubble = (props) => {
     return (
         <div className={props.me ? 'message' : 'message others'}>
             {props.message.startsWith('http') ? 
@@ -12,7 +12,7 @@ export const Chatbubble = (props) => {
     )
 }
 
-
+export default Chatbubble;
 /*-------------------------------------- TEXT BUBBLES ----------------------------------*/
 /* export const ChatBubblesME = (props) => {
     return (

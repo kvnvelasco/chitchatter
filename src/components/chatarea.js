@@ -1,6 +1,6 @@
 import React from 'react'
 import Chatbox from './chatbox';
-import { Chatbubble } from './chatbubbles';
+import Chatbubble from './chatbubbles';
 //import './chatroom.css'
 
 /* import {
