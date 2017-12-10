@@ -116,23 +116,33 @@
 
 .chat-messages {
     grid-area: chatmessages;
-    /* grid-column: 1/2;
-    grid-row: 1/2; */
     padding: 0 5% 20px 5%;
     width: 100%;
-    height: 100%;
-    /* position: absolute; */
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 75vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
+}
+
+.chat-messages .joined-leave {
+    justify-self: center;
+    margin: 30px 0;
 }
 
 .chat-messages .message {
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: auto auto;
-    
 }
 
 .message img, 
@@ -154,13 +164,13 @@
     width: auto;
     max-width: 90%;
     height: auto;
-    padding: 9px 20px;
-    font-weight: bold;
+    padding: 10px 20px;
+    /* font-weight: bold; */
     text-align: right;
     word-wrap:break-word; 
-    padding:10px; 
     border-radius: 5px;
     font-size: 14px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .message .chat {
@@ -170,28 +180,38 @@
 
 .message.others .chat {
     background-color: #ECF0F1;
-    color: #212F3D; 
+    color: #808B96  ; 
     text-align: left;
 }
 
-.message h4
-.message.others h4 {
+.message .author,
+.message.others .author {
     grid-column: 1/2;
     grid-row: 2/3;
-    margin-bottom: 20px;
-    margin-top: 0;
+    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
 .message img,
 .message .chat,
-.message h4 {
+.message .author {
     justify-self: end;
 }
 
 .message.others img,
 .message.others .chat,
-.message.others h4 {
+.message.others .author {
     justify-self: start;
+}
+
+.message .author strong,
+.message.others .author strong {
+    color: #808B96;
+}
+
+.message .author span,
+.message.others .author span {
+    color: #D5D8DC;
 }
 
 #chatbox {
@@ -234,6 +254,23 @@
     grid-row: 1/2;
     color: red;
     margin-left: 5px; 
+}
+
+.toaster-container{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.toaster-item{
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    width: 20vw;
+    height: 10vh;
+    opacity: 0.9;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 770px) {

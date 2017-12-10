@@ -71,15 +71,8 @@ input:focus{
     right: 8px;
 }
 
-/*
-.upload{
-    position: absolute;
-    transform: translate(20px,-40px);
-    margin-left: 2px;
-}
-
 .attach{
-    height: 30px;
+    height: 40px;
     width: 90px;
     display: flex;
     padding-top: 5px;
@@ -100,8 +93,7 @@ input:focus{
 .bubble:before{
     content: "";
     position: absolute;
-    bottom: -33px;
-    left: 0;
+    top: 20px;
     border-left: 10px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 15px solid transparent;
@@ -110,12 +102,18 @@ input:focus{
 .bubble:after{
     content: "";
     position: absolute;
-    bottom: -22px;
-    left: 0;
+    top: 20px;
     border-right: 25px solid transparent;
     border-top: 15px solid #fff;
     border-bottom: 15px solid transparent;
-} */
+}
+/*
+.upload{
+    position: absolute;
+    transform: translate(20px,-40px);
+    margin-left: 2px;
+}
+ */
 
 /* ########## Input Box styles ######### */
 

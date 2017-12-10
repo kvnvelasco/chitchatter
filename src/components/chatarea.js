@@ -34,12 +34,13 @@ export const SideBar = (props) => {
 }
 
 export class ChatHistory extends React.Component {
-    componentDidUpdate(newProps) {
+
+    componentDidMount(newProps) {
         (this.chatNode.scrollTop = this.chatNode.scrollHeight)
     }
 
     render() {
-        console.log(this.props.messages)
+        console.log(this.chatNode)
         return (
             <div ref={(el) => this.chatNode = el} className="chatarea">
                 <div className="chat-messages">

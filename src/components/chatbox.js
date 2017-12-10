@@ -34,7 +34,7 @@ class Chatbox extends React.Component {
 
     handleClick = () => {
         if (!this.state.currentMessage) {
-            toasterMessenger.dispatch('You cant send blank messages', 'orange')
+            toasterMessenger.dispatch('You can\'t send blank messages', 'orange')
         } else {
             this.props.onClick(this.state.currentMessage)
             this.setState({ currentMessage: "" })
