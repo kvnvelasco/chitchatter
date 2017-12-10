@@ -1,5 +1,7 @@
+
+
 /*------------------------- MY "TEXT" BUBBLE -----------------------------*/
-.your-chat{
+/* .your-chat{
 display: block;
 margin-bottom: 80px;  
 }
@@ -14,7 +16,7 @@ padding:10px;
 border-bottom-right-radius: 5px;
 color: white;
 font-size: 14px;
-background: rgb(0, 153, 153);;   
+background: rgb(0, 153, 153);   
 }
   
 .your-chat .chat-message:after{
@@ -40,9 +42,9 @@ right:0px;
 color: #613A43;
 }
 
-
+ */
 /*--------------------------------- OTHERS "TEXT" BUBBLE --------------------------------------*/
-
+/* 
 .chat {
 display: block;
 margin-bottom: 80px;    
@@ -82,18 +84,18 @@ bottom:-40px;
 left:0px;
 margin:none;
 padding:none;   
-
+ */
 /* position: absolute;
 margin: none;
 padding:none;
 bottom:-40px;
 right:0px;
-color: #613A43; */
-}
+color: #613A43; }*/
+
 
 
 /*-------------------------------- "MY" IMAGE BUBBLES -----------------------------------------*/
-.your-image{
+/* .your-image{
 display: block;
 flex-flow: row wrap;
 align-items: flex-start;
@@ -117,9 +119,9 @@ top:10px;
 left:670px;
 font-size: 15px;
 }
-
+ */
 /*-------------------------------- "OTHERS" IMAGE BUBBLES -----------------------------------------*/
-
+/* 
 .chat-image{
 display: block;
 flex-flow: row wrap;
@@ -146,9 +148,9 @@ font-size: 15px;
 white-space: 20px;
 }
 
-
+ */
 /*------------------------- MY "PDF"  BUBBLE -----------------------------*/
-.your-chat-pdf{
+/* .your-chat-pdf{
 display: block;
 flex-flow: row wrap;
 align-items: flex-start;
@@ -197,9 +199,9 @@ left:-10px;
 
 height:20px;
 width:20px
-}
+} */
 /*------------------------- OTHERS "PDF"  BUBBLE -----------------------------*/
-
+/* 
 .chat-pdf {
 display: block;
 flex-flow: row wrap;
@@ -256,4 +258,4 @@ width:20px
         
 a{
     color:white;
-}
+} */

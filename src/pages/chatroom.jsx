@@ -2,8 +2,6 @@ import React from 'react';
 import { SideBar, ChatHistory } from '../components/chatarea.js'
 import { toasterMessenger } from '../messenger'
 import Toaster from '../toaster'
-import { setTimeout } from 'timers';
-
 
 class ChatRoom extends React.Component {
 
@@ -11,14 +9,6 @@ class ChatRoom extends React.Component {
     users: [],
     messages: [],
     socket: null,
-  }
-
-  openAttach = () => {
-    this.setState({ display: !this.state.display })
-  }
-
-  closeAttach = () => {
-    this.setState({ display: false })
   }
 
   componentWillMount() {
@@ -121,9 +111,7 @@ class ChatRoom extends React.Component {
           />
           <ChatHistory 
             messages={this.state.messages}
-            url={this.state.url}
             username={this.props.username}
-            messageLength={this.state.messages.length}
             onClick={this.sendMessage}
             sendFiles={this.sendFiles}
           />

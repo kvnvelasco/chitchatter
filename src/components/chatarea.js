@@ -1,15 +1,17 @@
 import React from 'react'
 import Chatbox from './chatbox';
+import { Chatbubble } from './chatbubbles';
 //import './chatroom.css'
-//import CornerImage from '../side-image.png';
-import {
+
+/* import {
     ChatBubblesME,
     ChatBubblesOTHERS,
     ChatBubblesIMAGEME,
     ChatBubblesIMAGEOTHERS,
     ChatBubblesPDFME,
     ChatBubblesPDFOthers
-} from './chatBubbles.js'
+} from './chatbubbles'
+ */
 
 export const SideBar = (props) => {
     return (
@@ -20,9 +22,11 @@ export const SideBar = (props) => {
                 <a onClick={props.logOut}>(leave)</a>
             </div>
             <strong>Members</strong>
-            {props.users.map(users => {
+            {props.users.map((users, ind) => {
                 return(
-                    <div className="active"><p>{users}</p></div>
+                    <div key={ind} className="active">
+                        <p>{users}</p>
+                    </div>
                 )
             })}
         </div>
@@ -35,42 +39,54 @@ export class ChatHistory extends React.Component {
     }
 
     render() {
+        console.log(this.props.messages)
         return (
             <div ref={(el) => this.chatNode = el} className="chatarea">
                 <div className="chat-messages">
-                    {this.props.messages.map(message => {
+                    {this.props.messages.map((message, i) => {
                         if(message.system === true) {
                             return(
-                                <div className="joined-leave">
+                                <div key={i} className="joined-leave">
                                     <em>{message.message}</em>
                                 </div>
                             )
                             // Handle a case where there is no message.message
                             // but a message.fileURL instead
-                        } else if (message.author === this.props.username) {
+                        } else {
+                            return (
+                                <Chatbubble
+                                    key={i}
+                                    message={message.message}
+                                    author={message.author}
+                                    me={message.author === this.props.username}
+                                />
+                            )
+                        }
+                        
+                        {/* else if (message.author === this.props.username) {
                             return (
                                 <div>
-                                    {/* <ChatBubblesME message={message.message}
-                                        author={message.author} /> */}
+                                    <ChatBubblesME message={message.message}
+                                        author={message.author} />
                                     
                                     <ChatBubblesIMAGEME messages={message.message}
                                         author={message.author} />
-                                    {/* <ChatBubblesPDFME message={message.message}
-                                        author={message.author} /> */}
+                                    <ChatBubblesPDFME message={message.message}
+                                        author={message.author} />
                                 </div>
                             )
                         } else if (message.author !== this.props.username) {
                             return (
                                 <div>
-                                    {/* <ChatBubblesOTHERS message={message.message}
-                                        author={message.author} /> */}
+                                    <ChatBubblesOTHERS message={message.message}
+                                        author={message.author} />
                                      <ChatBubblesIMAGEOTHERS messages={message.message}
                                         author={message.author} />
-                                    {/* <ChatBubblesPDFOthers message={message.message}
-                                        author={message.author} /> */}
+                                    <ChatBubblesPDFOthers message={message.message}
+                                        author={message.author} />
                                 </div>
                             )
-                        }
+                        } */}
                     })}
                 </div>
                 <Chatbox 

@@ -11,7 +11,7 @@ import { toasterMessenger } from '../messenger';
 class Chatbox extends React.Component {
     state = {
         currentMessage: "",
-        open:false
+        open: false
     }
     
     componentDidMount(){
@@ -21,7 +21,6 @@ class Chatbox extends React.Component {
 
     componentWillUnmount(){
         document.removeEventListener('click',this.closePopUp)
-        this.button.removeEventListener('click',this.togglePopUp)
     }
 
     closePopUp=()=>{
