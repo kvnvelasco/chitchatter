@@ -21,14 +21,16 @@ export const SideBar = (props) => {
                 <h2>{props.room}</h2>
                 <a onClick={props.logOut}>(leave)</a>
             </div>
-            <strong>Members</strong>
-            {props.users.map((users, ind) => {
-                return(
-                    <div key={ind} className="active">
-                        <p>{users}</p>
-                    </div>
-                )
-            })}
+            <div className='members'>
+                <strong >Members</strong>
+                {props.users.map((users, ind) => {
+                    return(
+                        <div key={ind} className="active">
+                            <p>{users}</p>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
