@@ -1,5 +1,5 @@
 import React from 'react'
-import './chatbubbles.css'
+/* import './chatbubbles.css' */
 
 const date = new Date();
 let time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })

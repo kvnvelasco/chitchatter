@@ -4,7 +4,7 @@ import Send from '../send.png';
 import Image from '../image.png';
 import Clip from '../clip.png';
 import ReactFileReader from 'react-file-reader' ;
-import './chatbox.css'
+/* import './chatbox.css' */
 import { toasterMessenger } from '../messenger';
 
 

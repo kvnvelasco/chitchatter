@@ -1,3 +1,5 @@
+/* HOME PAGE */
+
 .home {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -17,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    padding: 50% 10%;   
+    padding: calc((100vh - 450px)/2) 10%;
     color: #BDC3C7;
 }
 
@@ -70,6 +72,8 @@
     background-color: #17A589; 
 }
 
+/* CHATROOM PAGE */
+
 .chatroom {
     display: grid;
     grid-template-columns: 20% 60% 1fr;
@@ -91,6 +95,8 @@
     justify-content: center;
 }
 
+/* CHATROOM > SIDEBAR */
+
 .sidebar-chatroom {
     grid-area: side;
     background-color: #ECF0F1;
@@ -104,6 +110,35 @@
     font-size: 15px;
 }
 
+.chat-room {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto auto;
+    width: 100%;
+}
+
+.chat-room > strong {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.chat-room > h2 {
+    grid-column: 1/3;
+    grid-row: 2/3; 
+    margin: 0 0 20px 0;
+    padding: 0; 
+    font-weight: bold;
+}
+
+.chat-room a {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color: red;
+    margin-left: 5px; 
+}
+
+/* CHATROOM > CHAT AREA */
+
 .chatarea {
     grid-area: chat;
     display: grid;
@@ -113,6 +148,8 @@
         "chatmessages"
         "chatbox"
 }
+
+/* CHAT AREA > MESSAGE */
 
 .chat-messages {
     grid-area: chatmessages;
@@ -228,6 +265,8 @@
     color: #D5D8DC;
 }
 
+/* CHAT AREA > CHATBOX */
+
 #chatbox {
     grid-area: chatbox;
     /* grid-column: 1/2;
@@ -237,38 +276,106 @@
     height: 65%;
 }   
 
-.photo-chatroom {
-    grid-area: photo;
-    background: url('../side-image.png') no-repeat center;
-    background-size: cover;
+#chatbox input {
+    width: 65%;
+    padding-left: 10px;
+    font-size: 20px;
 }
 
-.chat-room {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-auto-rows: auto auto;
-    width: 100%;
+input::-webkit-input-placeholder{
+    opacity: .7;
 }
 
-.chat-room > strong {
-    grid-column: 1/2;
-    grid-row: 1/2;
+input:focus{
+    outline: none
+} 
+.plus{
+    position: relative;
+    width: 50px;    
+    padding: 10px;
+    background:#e6e6e6;
+    box-shadow: none;
+    border:none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    outline: none
 }
 
-.chat-room > h2 {
-    grid-column: 1/3;
-    grid-row: 2/3; 
-    margin: 0 0 20px 0;
-    padding: 0; 
-    font-weight: bold;
+.plus:hover{
+    background:silver;
 }
 
-.chat-room a {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    color: red;
-    margin-left: 5px; 
+.plus img{
+    width: 22px;
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    margin: 0 auto
 }
+
+.send{
+    background: #33cccc;
+    width:60px;
+    padding-left: 15px;
+    box-shadow: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    outline: none;
+    border: none;
+}
+
+.send:hover{
+    background: grey;
+}
+
+.send img{
+    width: 22px;
+    padding-bottom: 15px;
+    position: relative;
+    top: 8px;
+    right: 8px;
+}
+
+.attach{
+    height: 40px;
+    width: 90px;
+    display: flex;
+    padding-top: 5px;
+    box-shadow: 1px 6px 15px grey;
+    background: white
+}
+
+.attach img{
+    width: 20px;
+    height: 20px;
+}
+
+.insertImage{
+    margin-left:25px;
+    margin-right: 15px
+}
+
+.bubble:before{
+    content: "";
+    position: absolute;
+    top: 20px;
+    border-left: 10px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  
+.bubble:after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    border-right: 25px solid transparent;
+    border-top: 15px solid #fff;
+    border-bottom: 15px solid transparent;
+}
+
+/* TOASTER */
 
 .toaster-container{
     position: absolute;
@@ -287,6 +394,14 @@
     height: auto;
     opacity: 0.9;
     margin-top: 10px;
+}
+
+/* CHATROOM > PHOTO */
+
+.photo-chatroom {
+    grid-area: photo;
+    background: url('../side-image.png') no-repeat center;
+    background-size: cover;
 }
 
 @media screen and (max-width: 770px) {
@@ -309,10 +424,10 @@
             "header"
             "chat"
     }
-
+/* 
     #chatbox {
         margin-top: 30px;
-    }
+    } */
 }
 
 /* .photo img {
