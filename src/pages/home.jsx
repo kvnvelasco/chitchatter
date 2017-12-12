@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './home.css';
-//import CornerImage from '../side-image.png';
-import { toasterMessenger } from '../messenger'
-import Toaster from '../toaster'
+import { toasterMessenger } from '../components/messenger'
+import Toaster from '../components/toaster'
 
 
-class Home extends Component {
+class Home extends React.Component {
     state = {
         username: "",
         room: ""
     }
 
-    EnterKey = (e) => {
+    enterKey = (e) => {
         if (e.key === "Enter") {
             this.props.history.push('/chatroom')
             this.props.login(this.state.username, this.state.room)
@@ -32,7 +31,7 @@ class Home extends Component {
                         <strong>Room Name</strong>
                         <input type="text" name="chatroomname"
                             onChange={(ev) => this.setState({ room: ev.target.value })}
-                            onKeyPress={this.EnterKey} 
+                            onKeyPress={this.enterKey} 
                         />
                         <input 
                             id='join-now'
@@ -48,9 +47,7 @@ class Home extends Component {
                     </div>      
                 </div>
 
-                <div className="photo">
-                    {/* <img src={CornerImage} /> */}
-                </div>
+                <div className="photo"></div>
                 <Toaster />
             </div>
         )

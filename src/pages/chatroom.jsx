@@ -1,7 +1,7 @@
 import React from 'react';
 import { SideBar, ChatHistory } from '../components/chatarea.js'
-import { toasterMessenger } from '../messenger'
-import Toaster from '../toaster'
+import { toasterMessenger } from '../components/messenger'
+import Toaster from '../components/toaster'
 
 class ChatRoom extends React.Component {
 
@@ -116,7 +116,6 @@ class ChatRoom extends React.Component {
             sendFiles={this.sendFiles}
           />
           <div className='photo-chatroom'></div>
-          {/* <SideImage/> */}
           <Toaster />
       </div>
 

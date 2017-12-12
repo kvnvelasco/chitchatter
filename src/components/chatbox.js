@@ -1,11 +1,10 @@
 import React from 'react';
-import Plus from '../plus.png';
-import Send from '../send.png';
-import Image from '../image.png';
-import Clip from '../clip.png';
+import Plus from '../images/plus.png';
+import Send from '../images/send.png';
+import Image from '../images/image.png';
+import Clip from '../images/clip.png';
 import ReactFileReader from 'react-file-reader' ;
-/* import './chatbox.css' */
-import { toasterMessenger } from '../messenger';
+import { toasterMessenger } from './messenger';
 
 
 class Chatbox extends React.Component {

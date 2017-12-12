@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {Route, Switch, Link, NavLink} from 'react-router-dom';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Home from "./pages/home";
 import ChatRoom from "./pages/chatroom";
 
 
-class App extends Component {
+class App extends React.Component {
   state = {
     username: "",
     room: ""
@@ -19,18 +17,20 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-      
         <Switch>
-          <Route path="/chatroom" render={(locationProps) => (
-            <ChatRoom {...locationProps} 
-              username={this.state.username} 
-              room={this.state.room}/>
-          )}/>
-          <Route path="/" render={(locationProps) => (
-            <Home {...locationProps} login={this.login}/>
-        )}/>
+          <Route 
+            path="/chatroom" 
+            render={(locationProps) => (
+              <ChatRoom {...locationProps} username={this.state.username} room={this.state.room}/>
+              )}
+            />
+          <Route 
+            path="/" 
+            render={(locationProps) => (
+              <Home {...locationProps} login={this.login}/>
+            )}
+          />
         </Switch>
-        
       </div>  
     );
   }
