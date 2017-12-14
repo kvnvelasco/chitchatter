@@ -12,7 +12,6 @@ import {
 
 export class SideBar extends Component {
     render() {
-        console.log(this.props.users)
         return (
             <div className="users container-fluid">
                 <p>
@@ -43,7 +42,6 @@ export class ChatHistory extends Component {
         
     }
     render() {
-        console.log(this.props.messages)
         return (
             <div ref={(el) => this.chatNode = el} className="chatlogs">
                 {

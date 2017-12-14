@@ -60,15 +60,23 @@ class Chatbox extends Component {
                         </ReactFileReader>    
                     </div>
                 </div>
-                <button ref={button => this.button = button} className="plus" ><img src={Plus} /></button>
-                <input type="text" placeholder="Type your message here" value={this.state.currentMessage} onChange={(ev) => this.setState({ currentMessage: ev.target.value })}
+                <button ref={button => this.button = button} className="plus" >
+                    <img src={Plus} />
+                </button>
+                <input 
+                    type="text" 
+                    placeholder="Type your message here" 
+                    value={this.state.currentMessage} 
+                    onChange={(ev) => this.setState({ currentMessage: ev.target.value })}
                     onKeyPress={event => {
                         if (event.key === 'Enter') {
                             this.handleClick()
                         }
-                    }} />
-                <button className="send" onClick={this.handleClick} ><img src={Send} /></button>
-
+                    }}
+                />
+                <button className="send" onClick={this.handleClick} >
+                    <img src={Send} />
+                </button>
             </div>
         )
     }

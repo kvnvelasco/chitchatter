@@ -1,13 +1,13 @@
-
-import React, { Component } from 'react'
-import {SideBar, ChatHistory, SideImage} from '../components/chatRoom.js'
+import { error } from 'util';
+import React from 'react';
+import { SideBar, ChatHistory, SideImage } from '../components/chatRoom.js'
 import Chatbox from '../components/chatbox.js'
 import { toasterMessenger } from '../messenger'
 import Toaster from '../toaster'
 import { setTimeout } from 'timers';
 
 
-class ChatRoom extends Component {
+class ChatRoom extends React.Component {
 
   state = {
     users: [],
@@ -24,15 +24,12 @@ class ChatRoom extends Component {
   }
 
   componentWillMount() {
-
     if (!this.props.username || !this.props.room)
       return this.props.history.replace('/')
-
 
     const socket = new WebSocket("ws://188.166.221.63:8000")
     socket.onmessage = this.messageHandler
     socket.onopen = () => {
-      
       this.setState({ socket })
       socket.send(JSON.stringify({
         type: 'join',
@@ -54,7 +51,7 @@ class ChatRoom extends Component {
 
     switch (data.type) {
       case "join_success":
-        toasterMessenger.dispatch('Room Successfully Joined','#80ff80')
+        toasterMessenger.dispatch('Room Successfully Joined','green')
         break;
       case "history":
         this.setState({ messages: data.data.messages})
@@ -91,11 +88,18 @@ class ChatRoom extends Component {
     ))
   }
 
-  sendFiles = (file) => {
-    console.log(file)
-    var formData = new FormData(file);
+  sendFiles = async (file) => {
+    let formData = new FormData();
+    formData.append('file', file['0'], file['0'].name);
+    const url = 'http://188.166.221.63:8000/upload'
 
-    
+    const res = await fetch(url, {method: 'POST', body: formData})
+    res.ok ? console.log('connection success') : console.log('connection failed')
+
+    const json = await res.json()
+    const imageUrl = `http://188.166.221.63:8000${json.path}`
+
+    this.sendMessage(imageUrl)
   }
 
   logOut = () => {
@@ -107,7 +111,6 @@ class ChatRoom extends Component {
       this.props.history.push('/')
     ))
   }
-
 
   render() {
     return (
@@ -122,7 +125,10 @@ class ChatRoom extends Component {
                        username={this.props.username}
                        messageLength={this.state.messages.length}
                        />
-          <Chatbox onClick={this.sendMessage}/>
+          <Chatbox 
+            onClick={this.sendMessage}
+            sendFiles={this.sendFiles}
+          />
           </div>
           <SideImage/>
           <Toaster />
