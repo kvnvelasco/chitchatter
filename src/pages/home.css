@@ -209,8 +209,9 @@
 }
 
 .chat-messages .joined-leave {
-    justify-self: center;
+    text-align: center;    
     margin: 30px 0;
+    color: #808B96; 
 }
 
 .chat-messages .message {
@@ -299,7 +300,7 @@
 
 .message .author span,
 .message.others .author span {
-    color: #D5D8DC;
+    color: rgb(170, 172, 175);
 }
 
 /* CHAT AREA > CHATBOX */
@@ -309,10 +310,12 @@
     display: flex;
     justify-content: center;
     height: 65%;
+    position: relative;
+    padding: 0 30px;
 }   
 
 #chatbox input {
-    width: 65%;
+    width: 100%;
     padding-left: 10px;
     font-size: 20px;
 }
@@ -349,6 +352,13 @@ input:focus{
     right: 10px;
     margin: 0 auto
 }
+
+.upload {
+    position: absolute;
+    left: 40px;
+    top: -45px;
+    z-index: 1; 
+} 
 
 .send{
     background: #33cccc;

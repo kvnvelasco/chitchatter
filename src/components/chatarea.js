@@ -25,13 +25,9 @@ export const SideBar = (props) => {
 }
 
 export class ChatHistory extends React.Component {
-    componentDidMount() {
-        this.chatNode.scrollTop = this.chatNode.scrollHeight 
-        console.log("scroll height", this.chatNode.scrollHeight)
-        console.log("scroll top", this.chatNode.scrollTop)
+    componentDidUpdate(newProps) {
+        (this.chatNode.scrollTop = this.chatNode.scrollHeight)
     }
-
-    comp
 
     render() {
         return (
