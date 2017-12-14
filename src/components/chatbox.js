@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import Plus from '../plus.png';
-import Send from '../send.png';
-import Image from '../image.png';
-import Clip from '../clip.png';
-import ReactFileReader from 'react-file-reader';
-import './chatbox.css'
-import { toasterMessenger } from '../messenger';
+import React from 'react';
+import Plus from '../images/plus.png';
+import Send from '../images/send.png';
+import Image from '../images/image.png';
+import Clip from '../images/clip.png';
+import ReactFileReader from 'react-file-reader' ;
+import { toasterMessenger } from './messenger';
 
 
-class Chatbox extends Component {
+class Chatbox extends React.Component {
     state = {
         currentMessage: "",
-        open:false
+        open: false
     }
     
     componentDidMount(){
@@ -21,7 +20,6 @@ class Chatbox extends Component {
 
     componentWillUnmount(){
         document.removeEventListener('click',this.closePopUp)
-        this.button.removeEventListener('click',this.togglePopUp)
     }
 
     closePopUp=()=>{
@@ -35,7 +33,7 @@ class Chatbox extends Component {
 
     handleClick = () => {
         if (!this.state.currentMessage) {
-            toasterMessenger.dispatch('You cant send blank messages', 'orange')
+            toasterMessenger.dispatch('You can\'t send blank messages', 'orange')
         } else {
             this.props.onClick(this.state.currentMessage)
             this.setState({ currentMessage: "" })
@@ -47,9 +45,8 @@ class Chatbox extends Component {
     }
 
     render() {
-        
         return (
-            <div className="chatbox">
+            <div id="chatbox">
                 <div className="upload" style={{ display: this.state.open ? "inline" : "none"}}>
                     <div className="attach bubble">
                         <ReactFileReader fileTypes={[".png", ".jpg",".gif"]} handleFiles={this.handleFiles}>

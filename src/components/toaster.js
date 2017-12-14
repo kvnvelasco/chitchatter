@@ -1,7 +1,5 @@
 import React from 'react'
 import { toasterMessenger } from './messenger'
-import './toaster.css'
-//import debounce from 'lodash.debounce'
 
 class Toaster extends React.Component {
     state = {
@@ -26,12 +24,6 @@ class Toaster extends React.Component {
         })
         this.removeToasterItem();
     }
-
-    //fiveSecondsfadeOut = () => {
-    //    setTimeout(() => 'toaster-item', 50);
-    //    setTimeout(() => 'toaster-item fadeOut', 4500);
-    //    setTimeout(() => 'toaster-item', 5000);
-    //}
 
     removeToasterItem = () => {
         setTimeout(() => 
@@ -58,10 +50,7 @@ class Toaster extends React.Component {
                             backgroundColor: item.bgcolor }}>
                         {item.message}
                     </div>
-                    
                 )}
-                {/*<div className='toaster-item'>Another user has taken your username, pick another</div>
-                <div className='toaster-item'>Another user has taken your username, pick another</div>*/}
             </div>
         )
     }

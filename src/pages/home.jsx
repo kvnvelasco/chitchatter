@@ -1,60 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './home.css';
-import CornerImage from '../side-image.png';
-import { toasterMessenger } from '../messenger'
-import Toaster from '../toaster'
+import { toasterMessenger } from '../components/messenger'
+import Toaster from '../components/toaster'
 
 
-class Home extends Component {
+class Home extends React.Component {
     state = {
         username: "",
         room: ""
     }
 
-    EnterKey = (e) => {
-        if(e.key === "Enter"){
+    enterKey = (e) => {
+        if (e.key === "Enter") {
             this.props.history.push('/chatroom')
             this.props.login(this.state.username, this.state.room)
         }
     }
     render() {
         return (
-            <div className="App-header">
-                <div className="container">
-                    <span>ChitChatter</span>
-                    
-                    <em>Join a room to get<br />started</em>
-    
-
-                    <strong>
-                        Username
-                        <br />
-                    </strong>    
-                    <input
-                        onChange={(ev) => this.setState({ username: ev.target.value })}
-                        type="text" name="username" />
-                    <br />
-
-                    <strong>
-                        Room Name
-                        <br />
-                    </strong>
-                    <input type="text" name="chatroomname"
-                        onChange={(ev) => this.setState({ room: ev.target.value })} 
-                        onKeyPress={this.EnterKey}/>
-
-                    <br />
-                    <input type="submit" name="submit" value="JOIN ROOM" onClick={(e) => {
-                        this.props.history.push('/chatroom')
-                        this.props.login(this.state.username, this.state.room)
-                        e.preventDefault()
-                    }} />
+            <div className="home">
+                <div className="sidebar">
+                    <h1>ChitChatter</h1>
+                    <div className="user-input">
+                        <em>Join a room to get started</em>
+                        <strong>Username</strong>
+                        <input
+                            onChange={(ev) => this.setState({ username: ev.target.value })}
+                            type="text" name="username" 
+                        />
+                        <strong>Room Name</strong>
+                        <input type="text" name="chatroomname"
+                            onChange={(ev) => this.setState({ room: ev.target.value })}
+                            onKeyPress={this.enterKey} 
+                        />
+                        <input 
+                            id='join-now'
+                            type="submit" 
+                            name="submit" 
+                            value="JOIN ROOM" 
+                            onClick={(e) => {
+                                this.props.history.push('/chatroom')
+                                this.props.login(this.state.username, this.state.room)
+                                e.preventDefault()
+                            }} 
+                        />
+                    </div>      
                 </div>
 
-                    <div className="App-PHOTO">
-                        <img src={CornerImage} />
-                    </div>
-                    <Toaster/> 
+                <div className="photo"></div>
+                <Toaster />
             </div>
         )
     }
