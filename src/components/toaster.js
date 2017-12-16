@@ -3,8 +3,7 @@ import { toasterMessenger } from './messenger'
 
 class Toaster extends React.Component {
     state = {
-        toasterList: [],
-        fade: false
+        toasterList: []
     }
 
     componentDidMount() {

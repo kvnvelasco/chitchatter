@@ -22,8 +22,8 @@ class App extends React.Component {
             path="/chatroom" 
             render={(locationProps) => (
               <ChatRoom {...locationProps} username={this.state.username} room={this.state.room}/>
-              )}
-            />
+            )}
+          />
           <Route 
             path="/" 
             render={(locationProps) => (

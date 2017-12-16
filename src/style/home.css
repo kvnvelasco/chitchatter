@@ -5,7 +5,7 @@
     grid-template-columns: 300px 1fr;
     grid-template-rows: 50px 1fr;
     height: 100vh;
-    width: 100vw;   
+    width: 100vw
 }
 
 .sidebar > h1 {
@@ -78,7 +78,8 @@
     display: grid;
     grid-template-rows: 75px 100px 1fr;
     height: 100vh;
-    width: 100vw; 
+    width: minmax(410px, 100vw);
+    overflow-x: hidden; 
     grid-template-columns: 100%; 
     grid-template-areas: 
         "header"
@@ -100,7 +101,8 @@
 
 .sidebar-chatroom {
     grid-area: side;
-    background-color: #ECF0F1;
+/*     background-color: #ECF0F1; */
+    background-color: lightgray ;
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-areas: 
@@ -245,7 +247,7 @@
     word-wrap: break-word; 
     border-radius: 5px;
     font-size: 14px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);    
 }
 
 /* .bubble-chat::after {
@@ -269,7 +271,7 @@
 
 .message.others .chat {
     background-color: #ECF0F1;
-    color: #808B96  ; 
+    color: #808B96; 
     text-align: left;
 }
 

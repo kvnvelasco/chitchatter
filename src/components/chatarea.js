@@ -31,8 +31,8 @@ export class ChatHistory extends React.Component {
 
     render() {
         return (
-            <div ref={(el) => this.chatNode = el} className="chatarea">
-                <div className="chat-messages">
+            <div className="chatarea">
+                <div ref={(el) => this.chatNode = el} className="chat-messages">
                     {this.props.messages.map((message, i) => {
                         if(message.system === true) {
                             return(
