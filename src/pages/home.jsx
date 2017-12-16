@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css';
+import '../style/home.css';
 import { toasterMessenger } from '../components/messenger'
 import Toaster from '../components/toaster'
 
