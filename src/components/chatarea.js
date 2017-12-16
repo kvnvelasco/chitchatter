@@ -2,26 +2,59 @@ import React from 'react'
 import Chatbox from './chatbox';
 import Chatbubble from './chatbubbles';
 
-export const SideBar = (props) => {
-    return (
-        <div className='sidebar-chatroom'>
-            <div className='chat-room'>
-                <strong>Room</strong>
-                <h2>{props.room}</h2>
-                <a onClick={props.logOut}>(leave)</a>
+export class SideBar extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            reveal: false,
+            sideClass: 'sidebar-chatroom'
+        }
+    }
+    
+    componentDidMount() {
+        document.addEventListener('click', this.closeSide);
+        this.button.addEventListener('click', this.toggleSidebar);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.closeSide)
+    }
+
+    closeSide = () => {
+        this.setState({reveal: false})
+    }
+
+    toggleSidebar = (e) => {
+        e.stopPropagation()
+        this.setState({reveal: !this.state.reveal})
+    } 
+
+    render() {
+        return (
+            <div className={this.state.reveal ? 'sidebar-chatroom reveal' : 'sidebar-chatroom'}>
+                <button 
+                    ref = {button => this.button = button}
+                    onClick={this.toggleSidebar}>
+                    Room
+                </button>
+                <div className='chat-room'>
+                    <strong>Room</strong>
+                    <h2>{this.props.room}</h2>
+                    <a onClick={this.props.logOut}>(leave)</a>
+                </div>
+                <div className='members'>
+                    <strong >Members</strong>
+                    {this.props.users.map((users, i) => {
+                        return(
+                            <div key={i} className="active">
+                                <p>{users}</p>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-            <div className='members'>
-                <strong >Members</strong>
-                {props.users.map((users, i) => {
-                    return(
-                        <div key={i} className="active">
-                            <p>{users}</p>
-                        </div>
-                    )
-                })}
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export class ChatHistory extends React.Component {
