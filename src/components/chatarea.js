@@ -63,6 +63,7 @@ export class ChatHistory extends React.Component {
     }
 
     render() {
+        console.log('chat message', this.props.messages)
         return (
             <div className="chatarea">
                 <div ref={(el) => this.chatNode = el} className="chat-messages">
@@ -79,6 +80,7 @@ export class ChatHistory extends React.Component {
                                     key={i}
                                     message={message.message}
                                     author={message.author}
+                                    date={message.date}
                                     me={message.author === this.props.username}
                                 />
                             )

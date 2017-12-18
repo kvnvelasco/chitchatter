@@ -43,8 +43,7 @@ class ChatRoom extends React.Component {
         break;
       case "history":
         this.setState({ messages: data.data.messages})
-        /* if (this.chatNode)
-          this.chatNode.scrollTop = this.chatNode.scrollHeight */
+
         break;
       case "members":
         data.data.push(this.props.username + ' (You)')
@@ -52,8 +51,7 @@ class ChatRoom extends React.Component {
         break;
       case "message":
         this.setState({ messages: this.state.messages.concat([data.data]) })
-        /* if (this.chatNode)
-          this.chatNode.scrollTop = this.chatNode.scrollHeight */
+
         break;
       case "joined":
         this.setState({ users: [...this.state.users, data.data.name] })
