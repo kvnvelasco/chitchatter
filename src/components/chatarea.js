@@ -63,7 +63,6 @@ export class ChatHistory extends React.Component {
     }
 
     render() {
-        console.log('chat message', this.props.messages)
         return (
             <div className="chatarea">
                 <div ref={(el) => this.chatNode = el} className="chat-messages">
