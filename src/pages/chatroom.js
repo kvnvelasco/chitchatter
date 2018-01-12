@@ -1,7 +1,8 @@
 import React from 'react';
-import { SideBar, ChatHistory } from '../components/chatarea.js'
-import { toasterMessenger } from '../components/messenger'
-import Toaster from '../components/toaster'
+import ChatHistory from '../components/chatHistory';
+import SideBar from '../components/sideBar';
+import { toasterMessenger } from '../components/messenger';
+import Toaster from '../components/toaster';
 
 class ChatRoom extends React.Component {
 
