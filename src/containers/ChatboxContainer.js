@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { toasterMessenger } from '../components/messenger';
+import { toasterMessenger } from '../components/Messenger';
 import Chatbox from '../components/Chatbox';
 
 class ChatboxContainer extends Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Toaster from '../components/toaster'
+import ToasterContainer from '../containers/ToasterContainer';
 
 class Home extends React.Component {
     render() {
@@ -29,7 +29,7 @@ class Home extends React.Component {
                     </div>      
                 </div>
                 <div className="photo"></div>
-                <Toaster />
+                <ToasterContainer />
             </div>
         )
     }

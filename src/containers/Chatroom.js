@@ -1,10 +1,10 @@
-import React from 'react';
-import { toasterMessenger } from '../components/messenger';
-import Toaster from '../components/toaster';
+import React, { Component } from 'react';
+import { toasterMessenger } from '../components/Messenger';
+import ToasterContainer from './ToasterContainer';
 import SidebarContainer from './SidebarContainer';
 import ChatareaContainer from './ChatareaContainer';
 
-class Chatroom extends React.Component {
+class Chatroom extends Component {
 
   state = {
     users: [],
@@ -115,7 +115,7 @@ class Chatroom extends React.Component {
             sendFiles={this.sendFiles}
           />
           <div className='photo-chatroom'></div>
-          <Toaster />
+          <ToasterContainer />
       </div>
 
     )
