@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from "./pages/home";
+import Home from "./containers/HomeContainer";
 import ChatRoom from "./pages/chatRoom";
-
+import HomeContainer from './containers/HomeContainer';
 
 class App extends React.Component {
   state = {
@@ -27,7 +27,7 @@ class App extends React.Component {
           <Route 
             path="/" 
             render={(locationProps) => (
-              <Home {...locationProps} login={this.login}/>
+              <HomeContainer {...locationProps} login={this.login}/>
             )}
           />
         </Switch>
