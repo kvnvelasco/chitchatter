@@ -1,8 +1,8 @@
 import React from 'react';
-import Chatbox from './chatBox';
-import Chatbubble from './chatBubbles';
+import Chatbubble from '../components/Chatbubble';
+import ChatboxContainer from './ChatboxContainer';
 
-class ChatHistory extends React.Component {
+class ChatareaContainer extends React.Component {
     componentDidUpdate(newProps) {
         (this.chatNode.scrollTop = this.chatNode.scrollHeight)
     }
@@ -31,7 +31,7 @@ class ChatHistory extends React.Component {
                         }
                     })}
                 </div>
-                <Chatbox 
+                <ChatboxContainer
                     onClick={this.props.onClick}
                     sendFiles={this.props.sendFiles}
                 />
@@ -40,4 +40,4 @@ class ChatHistory extends React.Component {
     }
 }
 
-export default ChatHistory;
+export default ChatareaContainer;

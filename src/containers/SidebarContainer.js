@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../components/Sidebar';
 
-class SideBar extends Component {
+class SidebarContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,4 +46,4 @@ class SideBar extends Component {
   }
 }
 
-export default SideBar;
+export default SidebarContainer;

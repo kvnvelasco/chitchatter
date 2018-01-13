@@ -1,8 +1,8 @@
 import React from 'react';
-import ChatHistory from '../components/chatHistory';
 import { toasterMessenger } from '../components/messenger';
 import Toaster from '../components/toaster';
 import SidebarContainer from './SidebarContainer';
+import ChatareaContainer from './ChatareaContainer';
 
 class Chatroom extends React.Component {
 
@@ -108,7 +108,7 @@ class Chatroom extends React.Component {
             users={this.state.users}
             logOut={this.logOut}
           />
-          <ChatHistory 
+          <ChatareaContainer 
             messages={this.state.messages}
             username={this.props.username}
             onClick={this.sendMessage}
