@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from "./pages/home";
-import ChatRoom from "./pages/chatroom";
+import ChatRoom from "./pages/chatRoom";
 
 
 class App extends React.Component {
