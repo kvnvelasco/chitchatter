@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from "./containers/HomeContainer";
-import ChatRoom from "./pages/chatRoom";
+import Chatroom from "./containers/Chatroom";
 import HomeContainer from './containers/HomeContainer';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     username: "",
     room: ""
@@ -21,7 +20,7 @@ class App extends React.Component {
           <Route 
             path="/chatroom" 
             render={(locationProps) => (
-              <ChatRoom {...locationProps} username={this.state.username} room={this.state.room}/>
+              <Chatroom {...locationProps} username={this.state.username} room={this.state.room}/>
             )}
           />
           <Route 

@@ -1,10 +1,10 @@
 import React from 'react';
 import ChatHistory from '../components/chatHistory';
-import SideBar from '../components/sideBar';
 import { toasterMessenger } from '../components/messenger';
 import Toaster from '../components/toaster';
+import SidebarContainer from './SidebarContainer';
 
-class ChatRoom extends React.Component {
+class Chatroom extends React.Component {
 
   state = {
     users: [],
@@ -103,7 +103,7 @@ class ChatRoom extends React.Component {
     return (
       <div className="chatroom">
           <div id="header">ChitChatter</div>
-          <SideBar 
+          <SidebarContainer 
             room={this.props.room} 
             users={this.state.users}
             logOut={this.logOut}
@@ -122,4 +122,4 @@ class ChatRoom extends React.Component {
   }
 }
 
-export default ChatRoom;
+export default Chatroom;
