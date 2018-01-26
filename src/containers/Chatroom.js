@@ -3,9 +3,9 @@ import { toasterMessenger } from '../components/Messenger';
 import ToasterContainer from './ToasterContainer';
 import SidebarContainer from './SidebarContainer';
 import ChatareaContainer from './ChatareaContainer';
+import { connect } from 'react-redux';
 
 class Chatroom extends Component {
-
   state = {
     users: [],
     messages: [],
@@ -13,7 +13,7 @@ class Chatroom extends Component {
   }
 
   componentWillMount() {
-    if (!this.props.username || !this.props.room)
+    if (!this.props.user.username || !this.props.user.room)
       return this.props.history.replace('/')
 
     const socket = new WebSocket("ws://188.166.221.63:8000")
@@ -23,8 +23,8 @@ class Chatroom extends Component {
       socket.send(JSON.stringify({
         type: 'join',
         data: {
-          username: this.props.username,
-          room: this.props.room
+          username: this.props.user.username,
+          room: this.props.user.room
         }
       }))
     }
@@ -124,4 +124,10 @@ class Chatroom extends Component {
   }
 }
 
-export default Chatroom;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Chatroom);
