@@ -1,7 +1,8 @@
-import React from 'react'
-import { toasterMessenger } from './messenger'
+import React from 'react';
+import { toasterMessenger } from '../components/Messenger';
+import Toaster from '../components/Toaster';
 
-class Toaster extends React.Component {
+class ToasterContainer extends React.Component {
     state = {
         toasterList: []
     }
@@ -39,20 +40,12 @@ class Toaster extends React.Component {
 
     render() {
         return (
-            <div className='toaster-container'>
-                {this.state.toasterList.map((item, index) => 
-                    <div 
-                        key={index} 
-                        className='toaster-item'
-                        style={{
-                            display: this.fiveSecondsDisplay,
-                            backgroundColor: item.bgcolor }}>
-                        {item.message}
-                    </div>
-                )}
-            </div>
+            <Toaster 
+                state={this.state}
+                toasterDisplay={this.fiveSecondsDisplay}
+            />
         )
     }
 }
 
-export default Toaster;
+export default ToasterContainer;

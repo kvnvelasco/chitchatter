@@ -1,10 +1,11 @@
-import React from 'react';
-import { SideBar, ChatHistory } from '../components/chatarea.js'
-import { toasterMessenger } from '../components/messenger'
-import Toaster from '../components/toaster'
+import React, { Component } from 'react';
+import { toasterMessenger } from '../components/Messenger';
+import ToasterContainer from './ToasterContainer';
+import SidebarContainer from './SidebarContainer';
+import ChatareaContainer from './ChatareaContainer';
+import { connect } from 'react-redux';
 
-class ChatRoom extends React.Component {
-
+class Chatroom extends Component {
   state = {
     users: [],
     messages: [],
@@ -12,7 +13,7 @@ class ChatRoom extends React.Component {
   }
 
   componentWillMount() {
-    if (!this.props.username || !this.props.room)
+    if (!this.props.user.username || !this.props.user.room)
       return this.props.history.replace('/')
 
     const socket = new WebSocket("ws://188.166.221.63:8000")
@@ -22,8 +23,8 @@ class ChatRoom extends React.Component {
       socket.send(JSON.stringify({
         type: 'join',
         data: {
-          username: this.props.username,
-          room: this.props.room
+          username: this.props.user.username,
+          room: this.props.user.room
         }
       }))
     }
@@ -62,6 +63,8 @@ class ChatRoom extends React.Component {
         var i = this.state.users.findIndex((currentIndex) => data.data.username === currentIndex)
         this.setState({ users: this.state.users.slice(0, i).concat(this.state.users.slice(i + 1)) })
         break;
+      default:
+        break
     }
   }
 
@@ -102,23 +105,29 @@ class ChatRoom extends React.Component {
     return (
       <div className="chatroom">
           <div id="header">ChitChatter</div>
-          <SideBar 
+          <SidebarContainer 
             room={this.props.room} 
             users={this.state.users}
             logOut={this.logOut}
           />
-          <ChatHistory 
+          <ChatareaContainer 
             messages={this.state.messages}
             username={this.props.username}
             onClick={this.sendMessage}
             sendFiles={this.sendFiles}
           />
           <div className='photo-chatroom'></div>
-          <Toaster />
+          <ToasterContainer />
       </div>
 
     )
   }
 }
 
-export default ChatRoom;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Chatroom);
